@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Brand from "./Brand";
 
-const quickLinks = [["Home", "#home"], ["About Us", "#about"], ["Doctors", "#doctors"], ["Services", "#services"], ["Gallery", "#gallery"], ["Contact Us", "#contact"]];
+const quickLinks = [["Home", "/"], ["About Us", "/about"], ["Doctors", "/#doctors"], ["Services", "/services"], ["Gallery", "/gallery"], ["Contact Us", "/contact"]];
 const services = ["Maternity Care", "Women’s Health Care", "High Risk Pregnancy", "Infertility Care", "ENT (Ear, Nose, Throat)", "Head & Neck Surgery"];
 
 export default function Footer() {
@@ -35,7 +35,7 @@ export default function Footer() {
           <div className="mb-6 mt-2 h-0.5 w-12 bg-[#123866]" />
           <ul className="space-y-2 text-sm">
             {services.map(label => <li key={label}>
-              <a href="#services" className="hover:text-primary hover:underline">
+              <a href="/services" className="hover:text-primary hover:underline">
                 {label}
               </a>
             </li>)}
