@@ -1,8 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { ArrowRight, CalendarDays, Clock3, X } from "lucide-react";
-import { useRef, useState } from "react";
+import Link from "next/link";
+import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ActionLink from "@/components/ui/ActionLink";
 
@@ -13,9 +11,6 @@ const articles = [
 ];
 
 export default function Blogs() {
-  const dialog = useRef<HTMLDialogElement>(null);
-  const [selected, setSelected] = useState<(typeof articles)[number] | null>(null);
-  function openArticle(article: (typeof articles)[number]) { setSelected(article); dialog.current?.showModal(); }
   return <section id="blogs" className="py-16 lg:py-20">
     <div className="mx-auto max-w-[1240px] px-5 xl:px-0">
       <SectionLabel>Our Blogs</SectionLabel>
@@ -26,7 +21,7 @@ export default function Blogs() {
           <p className="mt-3 text-sm">Latest articles and health tips from our doctors to help you and your family stay healthier.</p>
         </div>
 
-        <ActionLink href="#articles" outline>View All Articles</ActionLink>
+        <ActionLink href="/blogs" outline>View All Articles</ActionLink>
       </div>
 
       <div data-motion-stagger id="articles" className="grid gap-6 md:grid-cols-3">
@@ -48,28 +43,12 @@ export default function Blogs() {
 
             <div className="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-4 text-[11px] font-semibold">
               <div className="flex items-center gap-1"><CalendarDays size={12} />{article.date}<span className="mx-1 text-slate-300">|</span><Clock3 size={12} />{article.minutes} min read</div>
-              <button type="button" onClick={() => openArticle(article)} className="flex items-center gap-1 font-bold text-[#006bfa]">Read Article<ArrowRight size={14} /></button>
+              <Link href="/blogs/first-antenatal-visit" className="flex items-center gap-1 font-bold text-[#006bfa]">Read Article<ArrowRight size={14} /></Link>
             </div>
           </div>
         </article>)}
       </div>
     </div>
 
-    <dialog data-lenis-prevent ref={dialog} onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }} className="fixed inset-0 m-auto max-h-[85dvh] w-[calc(100%_-_40px)] max-w-xl overflow-y-auto rounded-2xl bg-white p-6 text-foreground shadow-xl backdrop:bg-black/50">
-      <div className="flex items-start justify-between gap-5">
-        <h2 className="text-xl font-extrabold text-primary">
-          {selected?.title}
-        </h2>
-        <button type="button" aria-label="Close article" onClick={() => dialog.current?.close()} className="shrink-0 rounded-full p-2 hover:bg-secondary">
-          <X size={20} />
-        </button>
-      </div>
-
-      <p className="mt-4 leading-7">
-        {selected?.text}
-      </p>
-      <p className="mt-5 text-sm">The full article will be available soon.</p>
-      <a href="#appointment" onClick={() => dialog.current?.close()} className="mt-6 inline-block font-bold text-primary underline">Speak with our doctors</a>
-    </dialog>
   </section>;
 }
