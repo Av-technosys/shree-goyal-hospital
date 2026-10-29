@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Pause, Play, Star, UserRound } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, UserRound } from "lucide-react";
 import { animate, motion, useInView, useMotionValue, useReducedMotion, type AnimationPlaybackControls } from "framer-motion";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 const testimonials = [
   { quote: "The consultant explained everything clearly and never made me feel rushed. My family knew exactly what was happening at every stage.", name: "A. Khan", department: "Cardiology" },
@@ -22,9 +22,6 @@ export default function Testimonials() {
   const x = useMotionValue(0);
   const reducedMotion = useReducedMotion();
   const visible = useInView(viewport, { amount: 0.25 });
-  const [paused, setPaused] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
 
   const move = useCallback((direction: number) => {
     if (busy.current || !step.current) return;
@@ -65,25 +62,19 @@ export default function Testimonials() {
   }, [x]);
 
   useEffect(() => {
-    if (paused || hovered || focused || reducedMotion || !visible) return;
+    if (reducedMotion || !visible) return;
     const timer = window.setInterval(() => {
       if (!document.hidden) move(1);
     }, 5500);
     return () => window.clearInterval(timer);
-  }, [paused, hovered, focused, reducedMotion, visible, move]);
+  }, [reducedMotion, visible, move]);
 
   return <section aria-label="Patient testimonials" aria-roledescription="carousel" className="pb-16 pt-4 lg:pb-20">
     <div className="mx-auto max-w-[1240px] px-5 xl:px-0">
       <h2 data-motion-reveal className="text-center text-3xl font-extrabold tracking-[-1px] text-primary sm:text-4xl">What Our <span className="text-accent">Patients</span> Say</h2>
       <p className="mt-2 text-center text-sm">Real stories from real patients</p>
 
-      <div
-        className="relative mt-10"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        onFocusCapture={() => setFocused(true)}
-        onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}
-      >
+      <div className="relative mt-10">
         <div ref={viewport} className="-mx-3 -my-4 overflow-hidden px-3 py-4">
           <motion.div ref={track} style={{ x }} className="flex gap-6">
             {slides.map((item, index) => <figure
@@ -110,12 +101,6 @@ export default function Testimonials() {
         <button type="button" aria-label="Next testimonial" onClick={() => move(1)} className="absolute -right-3 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-blue-100 bg-white shadow-sm transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-primary"><ChevronRight size={20} /></button>
       </div>
 
-      <div className="mt-5 flex justify-center">
-        <button type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)} className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-semibold text-slate-500 transition-colors hover:bg-secondary hover:text-primary focus-visible:outline-2 focus-visible:outline-primary">
-          {paused ? <Play size={13} /> : <Pause size={13} />}
-          {paused ? "Play reviews" : "Pause reviews"}
-        </button>
-      </div>
     </div>
   </section>;
 }

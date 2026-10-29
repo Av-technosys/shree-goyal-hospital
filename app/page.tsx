@@ -1,26 +1,26 @@
-import HomeAnimations from "@/components/home/HomeAnimations";
+import PageAnimations from "@/components/ui/PageAnimations";
 import Hero from "@/components/home/Hero";
-import CareHighlights from "@/components/home/CareHighlights";
+import CareHighlights from "@/components/ui/CareHighlights";
 import About from "@/components/home/About";
 import Services from "@/components/home/Services";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
-import Doctors from "@/components/home/Doctors";
-import Appointment from "@/components/home/Appointment";
+import Doctors from "@/components/ui/Doctors";
+import AppointmentSection from "@/components/ui/AppointmentSection";
 import Blogs from "@/components/home/Blogs";
 import Testimonials from "@/components/home/Testimonials";
 import Location from "@/components/home/Location";
 
 export default function Home() {
-  return <HomeAnimations>
+  return <PageAnimations>
     <Hero />
     <CareHighlights />
     <About />
     <Services />
     <WhyChooseUs />
     <Doctors />
-    <Appointment />
+    <AppointmentSection />
     <Blogs />
     <Testimonials />
     <Location />
-  </HomeAnimations>;
+  </PageAnimations>;
 }

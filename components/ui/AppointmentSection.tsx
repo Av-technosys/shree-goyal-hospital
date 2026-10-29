@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Clock3, ShieldCheck, UsersRound } from "lucide-react";
 import AppointmentForm from "@/components/ui/AppointmentForm";
 
-export default function Appointment() {
+export default function AppointmentSection() {
   return <section id="appointment" className="relative isolate overflow-hidden bg-[#09254b]">
     <div className="relative aspect-[1453/610] lg:absolute lg:inset-0 lg:aspect-auto">
       <Image src="/Home/appointmentBG.png" alt="Doctor consulting with an expectant mother" fill sizes="100vw" className="object-cover object-right" />
