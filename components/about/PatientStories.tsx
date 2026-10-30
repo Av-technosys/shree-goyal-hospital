@@ -28,9 +28,9 @@ export default function PatientStories() {
       event.preventDefault();
       changePhoto(event.key === "ArrowLeft" ? -1 : 1);
     }}
-    className="py-16 lg:py-20"
+    className="py-10 sm:py-16 lg:py-20"
   >
-    <div className="mx-auto grid max-w-[1240px] items-center gap-10 px-5 md:grid-cols-[1fr_1.15fr] lg:gap-16 xl:px-0">
+    <div className="mx-auto grid max-w-[1240px] items-center gap-6 px-4 sm:gap-10 sm:px-5 md:grid-cols-[1fr_1.15fr] lg:gap-16 xl:px-0">
       <div data-motion-reveal className="relative isolate mx-auto aspect-[519/424] w-full max-w-[519px]">
         <div aria-hidden="true" className="absolute left-0 top-[12%] h-[75%] w-[87%] -rotate-6 rounded-2xl bg-[#d6e5ff]" />
         <div aria-hidden="true" className="absolute bottom-[11%] right-0 h-[75%] w-[87%] rotate-6 rounded-2xl bg-[#d6e5ff]" />
@@ -51,7 +51,7 @@ export default function PatientStories() {
 
       <div data-motion-reveal>
         <SectionLabel>Patient Stories</SectionLabel>
-        <h2 className="text-3xl font-extrabold leading-[1.15] tracking-[-1px] text-[#123866] sm:text-4xl">What Our Patients Say</h2>
+        <h2 className="font-extrabold text-[#123866] text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">What Our Patients Say</h2>
         <figure className="mt-6">
           <blockquote className="max-w-[540px] text-sm leading-6">Shree Goyal Hospital provided exceptional care throughout our pregnancy journey. From checkups to delivery, the highly supportive doctors and friendly staff made us feel completely safe. With excellent facilities and compassionate service, we highly recommend them for total peace of mind.</blockquote>
           <figcaption className="mt-5 flex items-center gap-3">

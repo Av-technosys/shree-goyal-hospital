@@ -26,12 +26,12 @@ export default function ArticleShare({ title }: { title: string }) {
     }
   }
 
-  return <div className="flex shrink-0 items-center gap-2">
-    <span className="mr-2 text-xs font-semibold text-slate-500">Share:</span>
-    <button type="button" onClick={() => share("facebook")} aria-label="Share on Facebook" className="flex size-8 items-center justify-center rounded-full bg-[#1877f2] text-lg font-bold text-white transition-opacity hover:opacity-80">f</button>
-    <button type="button" onClick={() => share("whatsapp")} aria-label="Share on WhatsApp" className="flex size-8 items-center justify-center rounded-full bg-[#25d366] text-white transition-opacity hover:opacity-80"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="size-5"><path d="m4 20 1-4a8 8 0 1 1 3 3Z" /><path d="M9 8c-2 3 4 8 6 6l1-1-3-1-1 1-2-2 1-1Z" /></svg></button>
-    <button type="button" onClick={() => share("linkedin")} aria-label="Share on LinkedIn" className="flex size-8 items-center justify-center rounded-full bg-[#0a66c2] text-xs font-bold text-white transition-opacity hover:opacity-80">in</button>
-    <button type="button" onClick={copyLink} aria-label="Copy article link" className="flex size-8 items-center justify-center rounded-full bg-slate-100 text-foreground transition-colors hover:bg-blue-100">{status === "Link copied" ? <Check size={16} /> : <Link2 size={16} />}</button>
+  return <div className="flex shrink-0 items-center gap-2 border-l border-slate-200 pl-3 sm:border-0 sm:pl-0">
+    <span className="mr-0 text-[11px] sm:mr-2 sm:text-xs font-semibold text-slate-500">Share:</span>
+    <button type="button" onClick={() => share("facebook")} aria-label="Share on Facebook" className="flex size-7 sm:size-8 items-center justify-center rounded-full bg-[#1877f2] text-lg font-bold text-white transition-opacity hover:opacity-80">f</button>
+    <button type="button" onClick={() => share("whatsapp")} aria-label="Share on WhatsApp" className="flex size-7 sm:size-8 items-center justify-center rounded-full bg-[#25d366] text-white transition-opacity hover:opacity-80"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="size-5"><path d="m4 20 1-4a8 8 0 1 1 3 3Z" /><path d="M9 8c-2 3 4 8 6 6l1-1-3-1-1 1-2-2 1-1Z" /></svg></button>
+    <button type="button" onClick={() => share("linkedin")} aria-label="Share on LinkedIn" className="flex size-7 sm:size-8 items-center justify-center rounded-full bg-[#0a66c2] text-xs font-bold text-white transition-opacity hover:opacity-80">in</button>
+    <button type="button" onClick={copyLink} aria-label="Copy article link" className="flex size-7 sm:size-8 items-center justify-center rounded-full bg-slate-100 text-foreground transition-colors hover:bg-blue-100">{status === "Link copied" ? <Check size={16} /> : <Link2 size={16} />}</button>
     <span role="status" className="sr-only">{status}</span>
   </div>;
 }

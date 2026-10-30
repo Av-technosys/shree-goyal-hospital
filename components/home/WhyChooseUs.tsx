@@ -8,12 +8,12 @@ const items = [{ icon: ShieldCheck, title: "10+", detail: "Years of Excellence" 
 export default function WhyChooseUs() {
   return <section id="facilities" className="relative isolate overflow-hidden bg-white">
     <Image src="/Home/whychooseusBG.png" alt="" fill sizes="100vw" className="-z-10 object-cover object-center" />
-    <div className="relative mx-auto grid w-full min-w-0 max-w-[1240px] items-center gap-10 px-5 py-14 md:grid-cols-2 lg:gap-16 lg:py-20 xl:px-0">
+    <div className="relative mx-auto grid w-full min-w-0 max-w-[1240px] items-center gap-10 px-4 sm:px-5 py-14 md:grid-cols-2 lg:gap-16 lg:py-20 xl:px-0">
       <Image data-motion-reveal src="/Home/whychooseus.png" alt="The experienced medical team at Shree Goyal Hospital" width={552} height={497} sizes="(max-width: 767px) 90vw, 40vw" className="mx-auto h-auto w-full max-w-[500px] object-contain" />
       <div data-motion-reveal>
         <SectionLabel>Why Choose Us</SectionLabel>
-        <h2 className="text-3xl font-extrabold leading-[1.15] tracking-[-1px] text-primary sm:text-4xl">Joining Hands With <span className="text-accent">Better Healthcare</span></h2>
-        <p className="my-6 max-w-[580px] text-base leading-7">We bring together experienced medical professionals, modern healthcare technology, and a compassionate, patient-first approach to deliver personalised care, accurate diagnosis, and reliable treatment for you and your family at every stage of life.</p>
+        <h2 className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">Joining Hands With <span className="text-accent">Better Healthcare</span></h2>
+        <p className="my-6 max-w-[580px] text-sm leading-6 sm:text-base sm:leading-7">We bring together experienced medical professionals, modern healthcare technology, and a compassionate, patient-first approach to deliver personalised care, accurate diagnosis, and reliable treatment for you and your family at every stage of life.</p>
         <ActionLink href="#services">Explore Our Services</ActionLink>
 
         <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">

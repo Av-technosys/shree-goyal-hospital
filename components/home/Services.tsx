@@ -17,16 +17,16 @@ const services = [
 export default function Services() {
   return <section id="services" className="relative isolate overflow-hidden bg-[#f5f8fd]">
     <Image src="/Home/about2BG.png" alt="" fill sizes="100vw" className="-z-10 object-cover object-center" />
-    <div className="relative mx-auto grid w-full min-w-0 max-w-[1240px] gap-10 px-5 py-14 lg:grid-cols-[.85fr_2.15fr] lg:py-20 xl:px-0">
+    <div className="relative mx-auto grid w-full min-w-0 max-w-[1240px] gap-10 px-4 sm:px-5 py-14 lg:grid-cols-[.85fr_2.15fr] lg:py-20 xl:px-0">
       <div data-motion-reveal className="flex flex-col items-start">
-        <SectionLabel>About Shree Goyal Hospital</SectionLabel>
-        <h2 className="text-3xl font-extrabold leading-[1.15] tracking-[-1px] text-primary sm:text-4xl">Complete Care For <span className="text-accent">Motherhood</span> &amp; <span className="text-accent">ENT</span> Health</h2>
-        <p className="mt-8 text-base leading-6">From expert maternity and women&apos;s health to advanced ear, nose, and throat treatments, we provide compassionate and specialised medical care for you and your family.</p>
-        <ActionLink href="#appointment" className="mt-10 lg:mt-auto">Explore Our Services</ActionLink>
+        <SectionLabel>Our Services</SectionLabel>
+        <h2 className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">Complete Care For <span className="text-accent">Motherhood</span> &amp; <span className="text-accent">ENT</span> Health</h2>
+        <p className="mt-8 text-sm leading-6 sm:text-base">From expert maternity and women&apos;s health to advanced ear, nose, and throat treatments, we provide compassionate and specialised medical care for you and your family.</p>
+        <ActionLink href="/services" className="mt-10 lg:mt-auto">Explore Our Services</ActionLink>
       </div>
 
       <div data-motion-stagger className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {services.map(([title, text, asset]) => <article data-motion-hover="card" key={title} className="flex min-h-[232px] flex-col rounded-2xl bg-white p-4 shadow-[0_5px_20px_#0000000d]">
+        {services.map(([title, text, asset]) => <article data-motion-hover="card" key={title} className="flex min-w-0 break-words min-h-[232px] flex-col rounded-2xl bg-white p-4 shadow-[0_5px_20px_#0000000d]">
           <Image src={`/Home/${asset}.png`} width={70} height={70} alt="" className="mb-4" />
           <h3 className="max-w-[155px] text-sm font-extrabold leading-5 text-slate-900">
             {title}

@@ -15,14 +15,14 @@ const facilitiesList = [
 
 export default function KeyFacilities() {
   return (
-    <section aria-labelledby="key-facilities-heading" className="mx-auto max-w-[1240px] px-5 py-12 sm:py-16 xl:px-0">
+    <section aria-labelledby="key-facilities-heading" className="mx-auto max-w-[1240px] px-4 sm:px-5 py-12 sm:py-16 xl:px-0">
       <SectionLabel>Special Facilities</SectionLabel>
 
       <div data-motion-reveal className="mb-10 flex flex-wrap items-end justify-between gap-5">
         <div>
           <h2
             id="key-facilities-heading"
-            className="text-3xl font-extrabold leading-[1.15] tracking-[-1px] text-primary sm:text-4xl"
+            className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
           >
             Key Facilities at<br />
             <span className="text-accent">Shree Goyal Hospital</span>
@@ -38,7 +38,7 @@ export default function KeyFacilities() {
           <article
             key={index}
             data-motion-hover="card"
-            className="group flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_20px_#00000008] transition-shadow hover:shadow-md"
+            className="group flex min-w-0 break-words flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_20px_#00000008] transition-shadow hover:shadow-md"
           >
             <div className="relative h-[170px] w-full overflow-hidden">
               <Image

@@ -8,7 +8,7 @@ export default function Hero() {
       <Image src="/Home/HeroBG.png" alt="Doctor caring for an expectant mother" fill sizes="100vw" preload className="object-cover object-right" />
     </div>
 
-    <div className="relative mx-auto flex w-full min-w-0 max-w-[1240px] items-center px-5 pb-20 pt-10 md:min-h-[clamp(560px,40.5vw,780px)] md:py-16 xl:px-0">
+    <div className="relative mx-auto flex w-full min-w-0 max-w-[1240px] items-center px-4 sm:px-5 pb-20 pt-10 md:min-h-[clamp(560px,40.5vw,780px)] md:py-16 xl:px-0">
       <div data-motion-stagger className="w-full max-w-[565px] md:pb-6">
         <SectionLabel>Your Health, Our Priority</SectionLabel>
         <h1 className="text-[38px] font-extrabold leading-[1.12] tracking-[-1.7px] text-primary sm:text-[50px]">Every <span className="text-accent">Pregnancy</span><br />Deserves <span className="text-accent">Expert</span> Care</h1>

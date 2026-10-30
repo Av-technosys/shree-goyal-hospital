@@ -12,12 +12,12 @@ export default async function Blogs() {
   await connection();
   const articles = (await getPublishedBlogs()).slice(0, 3);
   return <section id="blogs" className="py-16 lg:py-20">
-    <div className="mx-auto max-w-[1240px] px-5 xl:px-0">
+    <div className="mx-auto max-w-[1240px] px-4 sm:px-5 xl:px-0">
       <SectionLabel>Our Blogs</SectionLabel>
 
       <div data-motion-reveal className="mb-10 flex flex-wrap items-end justify-between gap-5">
         <div>
-          <h2 className="text-3xl font-extrabold tracking-[-1px] text-primary sm:text-4xl">Health Insights <span className="text-accent">&amp; Wellness</span></h2>
+          <h2 className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">Health Insights <span className="text-accent">&amp; Wellness</span></h2>
           <p className="mt-3 text-sm">Latest articles and health tips from our doctors to help you and your family stay healthier.</p>
         </div>
 
@@ -25,7 +25,7 @@ export default async function Blogs() {
       </div>
 
       <div data-motion-stagger id="articles" className="grid gap-6 md:grid-cols-3">
-        {articles.map(article => <article data-motion-hover="card" key={article.title} className="flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_15px_#0000000d]">
+        {articles.map(article => <article data-motion-hover="card" key={article.title} className="flex min-w-0 break-words flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_15px_#0000000d]">
           <div className="relative">
             <Image src={article.mainBannerImage} alt={article.title} width={398} height={224} sizes="(max-width: 767px) 100vw, 33vw" className="aspect-[398/224] w-full object-cover" />
             <span className="absolute left-3 top-3 rounded-full bg-foreground px-3 py-1 text-[10px] font-bold text-white">
