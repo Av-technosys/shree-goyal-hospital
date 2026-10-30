@@ -23,8 +23,8 @@ export default function Facilities() {
         <Image data-motion-reveal src="/About/facilityMain.png" alt="The hospital’s modern operation theatre and medical team" width={752} height={286} sizes="(max-width: 767px) 90vw, 55vw" className="hidden h-auto w-full rounded-xl shadow-[0_12px_32px_#0b3d9126] md:block" />
       </div>
 
-      <div data-lenis-prevent-horizontal data-motion-stagger className="-mx-4 mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-px-4 px-4 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:scroll-px-0 lg:grid-cols-5">
-        {facilities.map(facility => <a key={facility.name} data-motion-hover="card" href="/facilities" className="group block min-w-0 basis-full shrink-0 snap-start text-center sm:basis-auto focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+      <div data-lenis-prevent-horizontal data-motion-stagger className="-mx-4 mt-6 flex snap-x snap-proximity gap-4 overflow-x-auto overscroll-x-contain scroll-px-4 px-4 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:scroll-px-0 lg:grid-cols-5">
+        {facilities.map(facility => <a key={facility.name} data-motion-hover="card" href="/facilities" className="group block min-w-0 basis-[145px] min-[390px]:basis-[160px] shrink-0 snap-start text-center sm:basis-auto focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
           <Image src={`/About/${facility.image}.png`} alt={facility.name} width={237} height={110} sizes="(max-width: 639px) 45vw, (max-width: 1023px) 30vw, 20vw" className="h-auto w-full rounded-xl shadow-[0_6px_18px_#0b3d911a] transition-shadow duration-300 group-hover:shadow-[0_10px_24px_#0b3d9126]" />
           <h3 className="mt-3 text-sm font-semibold group-hover:text-primary">{facility.name}</h3>
         </a>)}

@@ -33,12 +33,12 @@ export default function KeyFacilities() {
         </p>
       </div>
 
-      <div data-motion-stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div data-motion-stagger data-lenis-prevent-horizontal className="-mx-4 flex min-w-0 snap-x snap-proximity gap-5 overflow-x-auto overscroll-x-contain scroll-px-4 px-4 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:py-0 sm:scroll-px-0 lg:grid-cols-4">
         {facilitiesList.map((facility, index) => (
           <article
             key={index}
             data-motion-hover="card"
-            className="group flex min-w-0 break-words flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_20px_#00000008] transition-shadow hover:shadow-md"
+            className="group flex min-w-0 break-words flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_20px_#00000008] transition-shadow hover:shadow-md basis-[calc(65%-10px)] shrink-0 snap-start sm:basis-auto sm:shrink"
           >
             <div className="relative h-[170px] w-full overflow-hidden">
               <Image

@@ -39,13 +39,13 @@ export default function ComfortFacilities() {
 
       <div data-lenis-prevent-horizontal
         data-motion-stagger
-        className="mt-10 flex min-w-0 overflow-x-auto overscroll-x-contain scroll-px-4 gap-4 py-4 px-4 -mx-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:scroll-px-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
+        className="mt-10 flex min-w-0 overflow-x-auto overscroll-x-contain scroll-px-4 gap-4 py-4 px-4 -mx-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-proximity touch-auto sm:mx-0 sm:scroll-px-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
       >
         {comfortItems.map(({ title, icon: Icon }) => (
           <article
             key={title}
             data-motion-hover="card"
-            className="flex min-w-0 basis-full break-words shrink-0 snap-start min-h-[160px] flex-col items-center justify-center rounded-2xl border border-blue-100 bg-[#f0f6ff]/70 p-6 text-center shadow-xs transition-shadow hover:shadow-md sm:w-auto sm:basis-auto"
+            className="flex min-w-0 basis-[calc(60%-8px)] break-words shrink-0 snap-start min-h-[160px] flex-col items-center justify-center rounded-2xl border border-blue-100 bg-[#f0f6ff]/70 p-6 text-center shadow-xs transition-shadow hover:shadow-md sm:w-auto sm:basis-auto"
           >
             <span className="flex size-12 items-center justify-center rounded-2xl bg-primary text-white shadow-sm mb-4">
               <Icon size={22} />

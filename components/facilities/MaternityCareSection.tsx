@@ -60,12 +60,12 @@ export default function MaternityCareSection() {
             From routine checkups to advanced procedures, we provide personalized and compassionate care for women.
           </p>
 
-          <div data-lenis-prevent-horizontal className="mt-6 sm:mt-8 flex min-w-0 overflow-x-auto overscroll-x-contain scroll-px-4 gap-3.5 py-4 px-4 -mx-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:scroll-px-0 sm:px-0 sm:grid sm:grid-cols-4 sm:overflow-visible">
+          <div data-lenis-prevent-horizontal className="mt-6 sm:mt-8 flex min-w-0 overflow-x-auto overscroll-x-contain scroll-px-4 gap-3.5 py-4 px-4 -mx-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-proximity touch-auto sm:mx-0 sm:scroll-px-0 sm:px-0 sm:grid sm:grid-cols-4 sm:overflow-visible">
             {maternityServices.map(({ title, icon: Icon }) => (
               <div
                 key={title}
                 data-motion-hover="card"
-                className="flex min-w-0 basis-[calc((100%_-_14px)/2)] shrink-0 snap-start min-h-[125px] flex-col items-center justify-center rounded-2xl border border-slate-100 bg-white p-4 text-center shadow-xs transition-shadow hover:shadow-md sm:w-auto sm:basis-auto sm:min-h-[110px]"
+                className="flex min-w-0 basis-[140px] min-[390px]:basis-[150px] shrink-0 snap-start min-h-[125px] flex-col items-center justify-center rounded-2xl border border-slate-100 bg-white p-3 text-center shadow-xs transition-shadow hover:shadow-md sm:w-auto sm:basis-auto sm:p-4 sm:min-h-[110px]"
               >
                 <span className="flex size-11 items-center justify-center rounded-full bg-[#eef5fc] text-accent sm:size-10">
                   <Icon className="size-5 sm:size-4" />

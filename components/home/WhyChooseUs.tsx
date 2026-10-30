@@ -9,7 +9,7 @@ export default function WhyChooseUs() {
   return <section id="facilities" className="relative isolate overflow-hidden bg-white">
     <Image src="/Home/whychooseusBG.png" alt="" fill sizes="100vw" className="-z-10 object-cover object-center" />
     <div className="relative mx-auto grid w-full min-w-0 max-w-[1240px] items-center gap-10 px-4 sm:px-5 py-14 md:grid-cols-2 lg:gap-16 lg:py-20 xl:px-0">
-      <Image data-motion-reveal src="/Home/whychooseus.png" alt="The experienced medical team at Shree Goyal Hospital" width={552} height={497} sizes="(max-width: 767px) 90vw, 40vw" className="mx-auto h-auto w-full max-w-[500px] object-contain" />
+      <Image data-motion-reveal src="/Home/whychooseus.png" alt="The experienced medical team at Shree Goyal Hospital" width={552} height={497} sizes="(max-width: 767px) 90vw, 40vw" className="mx-auto h-auto w-full max-w-[500px] object-contain order-last md:order-first" />
       <div data-motion-reveal>
         <SectionLabel>Why Choose Us</SectionLabel>
         <h2 className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">Joining Hands With <span className="text-accent">Better Healthcare</span></h2>

@@ -40,13 +40,13 @@ export default function MajorOTEquipment() {
 
       <div data-lenis-prevent-horizontal
         data-motion-stagger
-        className="mt-8 flex min-w-0 overflow-x-auto overscroll-x-contain scroll-px-4 gap-4 py-4 px-4 -mx-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:scroll-px-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
+        className="mt-8 flex min-w-0 overflow-x-auto overscroll-x-contain scroll-px-4 gap-4 py-4 px-4 -mx-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-proximity touch-auto sm:mx-0 sm:scroll-px-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
       >
         {equipmentList.map(item => (
           <article
             key={item.title}
             data-motion-hover="card"
-            className="group flex min-w-0 basis-full break-words shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-xs transition-shadow hover:shadow-md sm:w-auto sm:basis-auto"
+            className="group flex min-w-0 basis-[calc(65%-8px)] break-words shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-xs transition-shadow hover:shadow-md sm:w-auto sm:basis-auto"
           >
             <div className="relative h-[135px] min-[390px]:h-[145px] sm:h-[160px] w-full overflow-hidden">
               <Image
