@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Baby, Check, FileText, Scissors } from "lucide-react";
+import { Baby } from "lucide-react";
+import ServiceListCard from "@/components/ui/ServiceListCard";
 import ActionLink from "@/components/ui/ActionLink";
 
 const highRiskPoints = [
@@ -26,25 +27,22 @@ const highRiskSurgeries = [
 
 export default function HighRiskPregnancyClinic() {
   return (
-    <section id="high-risk-delivery" aria-labelledby="high-risk-heading" className="mx-auto max-w-[1240px] px-5 py-12 sm:py-16 xl:px-0">
-      {/* Clinic Header Row */}
-      <div data-motion-reveal className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+    <section id="high-risk-delivery" aria-labelledby="high-risk-heading" className="mx-auto max-w-[1240px] px-4 sm:px-5 md:px-5 py-8 sm:py-12 lg:py-16 xl:px-0">
+      <div data-motion-reveal className="grid gap-5 lg:grid-cols-[1.4fr_1fr] lg:items-center">
         <div>
-          <span className="block text-xs font-bold uppercase tracking-wider text-destructive">Maternity Care</span>
-          <h2 id="high-risk-heading" className="mt-1 flex items-center gap-2.5 text-2xl font-extrabold text-primary sm:text-3xl">
-            <span className="h-7 w-1.5 shrink-0 rounded-full bg-destructive" aria-hidden="true" />
+          <span className="inline-flex rounded border border-blue-100 bg-blue-50 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-accent md:border-0 md:bg-transparent md:p-0 md:text-xs md:text-destructive">Maternity Care</span>
+          <h2 id="high-risk-heading" className="mt-1 flex items-center gap-2.5 text-[23px] font-extrabold leading-tight text-primary sm:text-3xl">
+            <span className="h-5 w-1 md:h-7 md:w-1.5 shrink-0 rounded-full bg-destructive" aria-hidden="true" />
             High Risk Pregnancy and Delivery
           </h2>
-          <p className="mt-3 max-w-[560px] text-sm sm:text-base leading-relaxed text-foreground">
+          <p className="mt-2 max-w-[560px] text-[13px] sm:text-base leading-relaxed text-foreground">
             Comprehensive care and specialized management for high-risk pregnancies, maternal health complications, and safe delivery.
           </p>
-          <div className="mt-6">
+          <div className="mt-5 md:mt-6">
             <ActionLink href="/contact">Book Appointment</ActionLink>
           </div>
         </div>
-
-        {/* Right Info Box */}
-        <div className="flex items-start gap-4 rounded-2xl border border-blue-100 bg-[#f0f6ff]/80 p-5 shadow-xs">
+        <div className="flex items-start gap-3 rounded-xl border border-blue-100 bg-[#f0f6ff]/80 p-4 shadow-xs md:p-5">
           <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-primary text-white shadow-sm">
             <Baby size={20} />
           </span>
@@ -56,13 +54,10 @@ export default function HighRiskPregnancyClinic() {
           </div>
         </div>
       </div>
-
-      {/* 3 Columns Grid - All 3 Cards Have The Exact Same Height */}
-      <div data-motion-stagger className="mt-10 grid items-stretch gap-6 md:grid-cols-3">
-        {/* Card 1: Newborn / Neonatal Photo (Equal Height) */}
+      <div data-motion-stagger className="mt-5 grid items-stretch gap-3 md:mt-10 md:gap-5 lg:grid-cols-3 md:grid-cols-2">
         <article
           data-motion-hover="card"
-          className="relative flex h-full min-h-[460px] w-full flex-col overflow-hidden rounded-3xl border border-slate-100/80 shadow-xs"
+          className="hidden md:col-start-1 md:row-start-1 md:row-span-2 md:flex lg:col-auto lg:row-auto lg:row-span-1 relative h-full min-h-[460px] w-full flex-col overflow-hidden rounded-3xl border border-slate-100/80 shadow-xs"
         >
           <div className="relative flex-1 w-full min-h-[460px]">
             <Image
@@ -75,58 +70,8 @@ export default function HighRiskPregnancyClinic() {
             />
           </div>
         </article>
-
-        {/* Card 2: High-Risk Conditions List Card (Equal Height) */}
-        <article
-          data-motion-hover="card"
-          className="flex h-full min-h-[460px] flex-col justify-between rounded-3xl border border-slate-100/80 bg-[#f4f7fc] p-6 shadow-xs sm:p-7"
-        >
-          <div>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-xs">
-                <FileText size={16} />
-              </span>
-              <h3 className="text-base font-bold text-slate-900">High-Risk Pregnancy</h3>
-            </div>
-
-            <ul className="space-y-3.5 text-xs sm:text-[13px] font-semibold text-slate-800">
-              {highRiskPoints.map(item => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-primary text-white">
-                    <Check size={10} strokeWidth={3.5} />
-                  </span>
-                  <span className="leading-snug">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </article>
-
-        {/* Card 3: Surgeries & Treatments Card (Equal Height) */}
-        <article
-          data-motion-hover="card"
-          className="flex h-full min-h-[460px] flex-col justify-between rounded-3xl border border-slate-100/80 bg-[#f4f7fc] p-6 shadow-xs sm:p-7"
-        >
-          <div>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-xs">
-                <Scissors size={16} />
-              </span>
-              <h3 className="text-base font-bold text-slate-900">Surgeries &amp; Treatments</h3>
-            </div>
-
-            <ul className="space-y-3.5 text-xs sm:text-[13px] font-semibold text-slate-800">
-              {highRiskSurgeries.map(item => (
-                <li key={item} className="flex items-start gap-2.5">
-                  <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-primary text-white">
-                    <Check size={10} strokeWidth={3.5} />
-                  </span>
-                  <span className="leading-snug">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </article>
+        <ServiceListCard title="High-Risk Pregnancy" items={highRiskPoints} />
+        <ServiceListCard title="Surgeries &amp; Treatments" items={highRiskSurgeries} treatment />
       </div>
     </section>
   );

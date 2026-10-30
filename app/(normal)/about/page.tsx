@@ -20,11 +20,13 @@ export default function AboutPage() {
     <AboutHero />
     <CareHighlights servicesHref="/services" />
     <Commitment />
-    <Doctors />
+    <Doctors compactMobile />
     <OurStory />
-    <MissionVision />
-    <PatientStories />
-    <Facilities />
+    <div className="flex flex-col">
+      <div className="order-2 md:order-1"><MissionVision /></div>
+      <div className="order-3 md:order-2"><PatientStories /></div>
+      <div className="order-1 md:order-3"><Facilities /></div>
+    </div>
     <AppointmentSection />
   </PageAnimations>;
 }

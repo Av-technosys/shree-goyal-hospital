@@ -27,9 +27,9 @@ async function PublishedArticle({ params }: Props) {
   const [article, articles] = await Promise.all([getPublishedBlog((await params).slug), getPublishedBlogs()]);
   if (!article) notFound();
   return <PageAnimations revealOnScroll={false}>
-    <article className="mx-auto max-w-[1240px] px-5 pb-16 pt-8 lg:pb-20 lg:pt-10 xl:px-0">
+    <article className="mx-auto max-w-[1240px] px-4 pb-10 pt-5 sm:px-5 sm:pb-16 sm:pt-8 lg:pb-20 lg:pt-10 xl:px-0">
       <ArticleHeader article={article} categoryName={article.categoryName} />
-      <div className="mt-8 grid items-start gap-8 lg:mt-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-12">
+      <div className="mt-6 grid min-w-0 items-start gap-8 sm:mt-8 lg:mt-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-12">
         <ArticleBody content={article.content} />
         <ArticleSidebar recentArticles={articles.filter(post => post.id !== article.id).slice(0, 5)} />
       </div>

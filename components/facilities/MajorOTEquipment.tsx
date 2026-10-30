@@ -21,14 +21,14 @@ const equipmentList = [
 
 export default function MajorOTEquipment() {
   return (
-    <section aria-labelledby="equipment-heading" className="mx-auto max-w-[1240px] px-5 py-12 lg:py-20 xl:px-0">
+    <section aria-labelledby="equipment-heading" className="mx-auto max-w-[1240px] px-4 sm:px-5 py-12 lg:py-20 xl:px-0">
       <div data-motion-reveal className="max-w-[650px]">
         <span className="mb-4 inline-flex items-center rounded-full bg-[#eef5fc] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
           Major OT Equipment
         </span>
         <h2
           id="equipment-heading"
-          className="text-3xl font-extrabold leading-[1.2] tracking-tight text-primary sm:text-4xl"
+          className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
         >
           State-of-the-Art<br />
           Medical Equipment
@@ -38,15 +38,15 @@ export default function MajorOTEquipment() {
         </p>
       </div>
 
-      <div
+      <div data-lenis-prevent-horizontal
         data-motion-stagger
-        className="mt-8 flex overflow-x-auto gap-4 pb-4 pt-1 px-5 -mx-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
+        className="mt-8 flex min-w-0 overflow-x-auto overscroll-x-contain scroll-px-4 gap-4 py-4 px-4 -mx-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:scroll-px-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
       >
         {equipmentList.map(item => (
           <article
             key={item.title}
             data-motion-hover="card"
-            className="group flex w-[210px] min-[390px]:w-[225px] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-xs transition-shadow hover:shadow-md sm:w-auto"
+            className="group flex min-w-0 basis-full break-words shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-xs transition-shadow hover:shadow-md sm:w-auto sm:basis-auto"
           >
             <div className="relative h-[135px] min-[390px]:h-[145px] sm:h-[160px] w-full overflow-hidden">
               <Image

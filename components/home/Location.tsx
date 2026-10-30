@@ -5,9 +5,9 @@ const mapUrl = "https://www.google.com/maps/search/?api=1&query=Shree+Goyal+Hosp
 
 export default function Location() {
   return <section id="contact" className="pb-12 pt-5">
-    <div className="mx-auto max-w-[1240px] px-5 xl:px-0">
+    <div className="mx-auto max-w-[1240px] px-4 sm:px-5 xl:px-0">
       <div data-motion-reveal className="mx-auto mb-10 max-w-[720px] text-center">
-        <h2 className="text-3xl font-extrabold tracking-[-1px] text-primary sm:text-[40px]">We&apos;re Here When <span className="text-accent">You Need</span> Us</h2>
+        <h2 className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">We&apos;re Here When <span className="text-accent">You Need</span> Us</h2>
         <p className="mt-3 text-sm leading-6">Located in a convenient and accessible area, Goyal Hospital is always ready to provide expert maternity and ENT care for you and your family.</p>
       </div>
 

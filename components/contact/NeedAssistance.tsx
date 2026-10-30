@@ -45,12 +45,12 @@ export default function NeedAssistance() {
         />
       </div>
 
-      <div className="relative mx-auto flex w-full min-w-0 max-w-[1240px] items-start px-5 pt-8 pb-[330px] min-[390px]:pb-[380px] sm:pb-[430px] lg:min-h-[clamp(440px,32vw,540px)] lg:items-center lg:py-16 xl:px-0">
+      <div className="relative mx-auto flex w-full min-w-0 max-w-[1240px] items-start px-4 sm:px-5 pt-8 pb-[330px] min-[390px]:pb-[380px] sm:pb-[430px] lg:min-h-[clamp(440px,32vw,540px)] lg:items-center lg:py-16 xl:px-0">
         <div data-motion-reveal className="w-full max-w-[620px] rounded-2xl bg-white/70 p-5 backdrop-blur-xs sm:p-8 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
           <SectionLabel>Need Assistance</SectionLabel>
           <h2
             id="assistance-heading"
-            className="text-2xl font-extrabold leading-[1.15] tracking-[-1px] text-primary sm:text-4xl"
+            className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
           >
             Your Care<br />
             <span className="text-accent">Starts with a Conversation</span>

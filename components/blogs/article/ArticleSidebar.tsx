@@ -13,7 +13,7 @@ export default function ArticleSidebar({ recentArticles }: ArticleSidebarProps) 
   const [query, setQuery] = useState("");
   const articles = recentArticles.filter(article => article.title.toLowerCase().includes(query.trim().toLowerCase()));
 
-  return <aside aria-label="More articles" className="space-y-5">
+  return <aside aria-label="More articles" className="hidden min-w-0 space-y-5 lg:block">
     <section className="rounded-2xl border border-slate-200 p-5 sm:p-6">
       <h2 className="mb-3 text-base font-extrabold text-slate-900">Search Articles</h2>
       <label className="relative block"><span className="sr-only">Search recent articles</span><Search size={16} aria-hidden="true" className="absolute left-3 top-3 text-slate-400" /><input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search articles..." aria-controls="recent-articles" className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 text-xs outline-none placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/10" /></label>

@@ -43,7 +43,7 @@ export default function GalleryGrid() {
   }
 
   return <section aria-label="Hospital photo gallery" className="pb-12 pt-12 lg:pt-20">
-    <div className="mx-auto max-w-[1240px] border-0 px-5 xl:px-0">
+    <div className="mx-auto max-w-[1240px] border-0 px-4 sm:px-5 xl:px-0">
       <div data-lenis-prevent-horizontal className="-mx-1 flex gap-2 overflow-x-auto overscroll-x-contain border-0 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="group" aria-label="Filter gallery by category">
         {categories.map(({ name, icon: Icon }) => <button
           key={name}
@@ -56,7 +56,7 @@ export default function GalleryGrid() {
       </div>
     </div>
 
-    <div className="mx-auto max-w-[1240px] px-5 pt-8 xl:px-0">
+    <div className="mx-auto max-w-[1240px] px-4 sm:px-5 pt-8 xl:px-0">
       <p className="sr-only" role="status">Showing {filtered.length} photos in {category}.</p>
       <div data-motion-reveal id="gallery-photos" className={`grid grid-cols-2 gap-3 sm:gap-5 ${category === "All" ? "lg:grid-cols-6" : "lg:grid-cols-3"}`}>
         <AnimatePresence initial={false} mode="popLayout">

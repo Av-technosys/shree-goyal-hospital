@@ -70,8 +70,8 @@ export default function Testimonials() {
   }, [reducedMotion, visible, move]);
 
   return <section aria-label="Patient testimonials" aria-roledescription="carousel" className="pb-16 pt-4 lg:pb-20">
-    <div className="mx-auto max-w-[1240px] px-5 xl:px-0">
-      <h2 data-motion-reveal className="text-center text-3xl font-extrabold tracking-[-1px] text-primary sm:text-4xl">What Our <span className="text-accent">Patients</span> Say</h2>
+    <div className="mx-auto max-w-[1240px] px-4 sm:px-5 xl:px-0">
+      <h2 data-motion-reveal className="text-center font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">What Our <span className="text-accent">Patients</span> Say</h2>
       <p className="mt-2 text-center text-sm">Real stories from real patients</p>
 
       <div className="relative mt-10">

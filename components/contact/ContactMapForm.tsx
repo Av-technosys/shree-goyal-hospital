@@ -46,7 +46,7 @@ export default function ContactMapForm() {
     "w-full min-w-0 rounded-xl border border-[#d4dfef] bg-white px-3.5 py-2.5 text-xs text-foreground placeholder:text-slate-400 outline-none transition-colors aria-invalid:border-red-400 focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-11 sm:px-4 sm:py-3 sm:text-sm";
 
   return (
-    <section id="contact-form" className="mx-auto max-w-[1240px] px-5 py-6 sm:py-10 xl:px-0">
+    <section id="contact-form" className="mx-auto max-w-[1240px] px-4 sm:px-5 py-6 sm:py-10 xl:px-0">
       <div className="grid items-stretch gap-6 sm:gap-8 lg:grid-cols-2">
         {/* Hospital map */}
         <div

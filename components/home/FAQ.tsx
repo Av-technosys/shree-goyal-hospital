@@ -26,8 +26,8 @@ const questions = [
 
 export default function FAQ() {
   return <section aria-labelledby="faq-heading" className="py-16 lg:py-20">
-    <div className="mx-auto max-w-[1240px] px-5 xl:px-0">
-      <h2 data-motion-reveal id="faq-heading" className="mb-9 text-center text-3xl font-extrabold leading-tight tracking-[-1px] text-primary sm:text-4xl">Frequently Asked <span className="text-accent">Questions</span></h2>
+    <div className="mx-auto max-w-[1240px] px-4 sm:px-5 xl:px-0">
+      <h2 data-motion-reveal id="faq-heading" className="mb-9 text-center font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">Frequently Asked <span className="text-accent">Questions</span></h2>
       <div className="grid items-center gap-8 md:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-10">
         <Image data-motion-reveal src="/Home/FAQ.png" alt="An expectant mother speaking with her doctor during an antenatal consultation" width={520} height={520} sizes="(max-width: 767px) 100vw, (max-width: 1279px) 43vw, 528px" className="mx-auto h-auto w-full max-w-[520px] rounded-2xl" />
         <div data-motion-reveal>

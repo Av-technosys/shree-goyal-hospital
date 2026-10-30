@@ -82,7 +82,7 @@ function HeaderContent({ pathname }: { pathname: string }) {
     <header>
       {/* Top Notification / Contact Bar */}
       <div className="bg-primary font-semibold text-white">
-        <div className="mx-auto flex min-h-9 max-w-[1240px] items-center justify-between gap-3 px-5 text-[11px] sm:text-sm xl:px-0">
+        <div className="mx-auto flex min-h-9 max-w-[1240px] items-center justify-between gap-3 px-4 text-[11px] sm:px-5 sm:text-sm xl:px-0">
           <p>Expert Maternity &amp; ENT Care in Ajmer</p>
 
           <div className="flex shrink-0 items-center gap-4 sm:gap-7">
@@ -106,7 +106,7 @@ function HeaderContent({ pathname }: { pathname: string }) {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="mx-auto flex min-h-[68px] max-w-[1240px] items-center justify-between gap-3 px-5 sm:gap-6 xl:px-0">
+      <div className="mx-auto flex min-h-[68px] max-w-[1240px] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-5 xl:px-0">
         <Brand />
 
         {/* Desktop Navigation */}
@@ -254,7 +254,7 @@ function HeaderContent({ pathname }: { pathname: string }) {
               appointmentTrigger.current = event.currentTarget;
               setAppointmentOpen(true);
             }}
-            className="inline-flex h-9 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-lg bg-primary px-3 text-xs font-bold leading-none text-white transition-colors hover:bg-[#092f70] sm:hidden"
+            className="inline-flex h-9 shrink-0 items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-3 text-xs font-bold leading-none text-white transition-colors hover:bg-[#092f70] sm:hidden"
           >
             <CalendarDays size={14} className="shrink-0" />
             <span>Book</span>
