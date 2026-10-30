@@ -16,7 +16,8 @@ const services = [
 
 export default function Services() {
   return <section id="services" className="relative isolate overflow-hidden bg-[#f5f8fd]">
-    <Image src="/Home/about2BG.png" alt="" fill sizes="100vw" className="-z-10 object-cover object-center" />
+    <Image src="/Home/about2BG.png" alt="" fill sizes="100vw" className="-z-10 hidden object-cover object-center md:block" />
+    <Image src="/Home/about2BG_mb.png" alt="" fill sizes="100vw" className="-z-10 object-cover object-center md:hidden" />
     <div className="relative mx-auto grid w-full min-w-0 max-w-[1240px] gap-10 px-4 sm:px-5 py-14 lg:grid-cols-[.85fr_2.15fr] lg:py-20 xl:px-0">
       <div data-motion-reveal className="flex flex-col items-start">
         <SectionLabel>Our Services</SectionLabel>

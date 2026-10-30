@@ -72,7 +72,7 @@ export default function ContactCards() {
           <article
             key={title}
             data-motion-hover="card"
-            className="flex min-w-0 basis-full break-words shrink-0 snap-start flex-col justify-between rounded-3xl border border-slate-100 bg-white p-6 shadow-[0_4px_14px_-4px_#0b3d911a] sm:shadow-[0_8px_30px_#0000000d] transition-all duration-300 hover:shadow-md sm:hover:shadow-xl sm:w-auto sm:basis-auto sm:rounded-2xl"
+            className="flex min-w-0 basis-[calc(80%-8px)] break-words shrink-0 snap-start flex-col justify-between rounded-3xl border border-slate-100 bg-white p-6 shadow-[0_4px_14px_-4px_#0b3d911a] sm:shadow-[0_8px_30px_#0000000d] transition-all duration-300 hover:shadow-md sm:hover:shadow-xl sm:w-auto sm:basis-auto sm:rounded-2xl"
           >
             <div>
               <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-white shadow-sm">
