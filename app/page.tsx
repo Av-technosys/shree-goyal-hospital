@@ -9,6 +9,7 @@ import AppointmentSection from "@/components/ui/AppointmentSection";
 import Blogs from "@/components/home/Blogs";
 import Testimonials from "@/components/home/Testimonials";
 import Location from "@/components/home/Location";
+import FAQ from "@/components/home/FAQ";
 
 export default function Home() {
   return <PageAnimations>
@@ -22,5 +23,6 @@ export default function Home() {
     <Blogs />
     <Testimonials />
     <Location />
+    <FAQ />
   </PageAnimations>;
 }

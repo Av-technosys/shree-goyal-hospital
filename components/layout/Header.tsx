@@ -8,7 +8,7 @@ import { useRef, useState } from "react";
 import AppointmentDialog from "@/components/ui/AppointmentDialog";
 import Brand from "./Brand";
 
-const links = [["Home", "/"], ["About Us", "/about"], ["Facilities", "/facilities"], ["Services", "/services"], ["Gallery", "/gallery"], ["Contact", "/contact"]];
+const links = [["Home", "/"], ["About Us", "/about"], ["Facilities", "/facilities"], ["Services", "/services"], ["Gallery", "/gallery"], ["Blogs", "/blogs"], ["Contact", "/contact"]];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -16,6 +16,7 @@ export default function Header() {
   const appointmentTrigger = useRef<HTMLButtonElement>(null);
   const menuTrigger = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
+  const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
   return <header>
     <div className="bg-primary font-semibold text-white">
       <div className="mx-auto flex min-h-9 max-w-[1240px] items-center justify-between gap-3 px-5 text-[11px] sm:text-sm xl:px-0">
@@ -38,8 +39,8 @@ export default function Header() {
 
     <div className="mx-auto flex min-h-[68px] max-w-[1240px] items-center justify-between gap-3 px-5 sm:gap-6 xl:px-0">
       <Brand />
-      <nav aria-label="Main navigation" className="hidden items-center gap-7 lg:flex">
-        {links.map(([label, href]) => <Link key={label} href={href} aria-current={pathname === href ? "page" : undefined} className={`border-b-2 py-1 text-sm font-semibold transition-colors hover:text-destructive ${pathname === href ? "border-destructive text-destructive" : "border-transparent text-foreground"}`}>
+      <nav aria-label="Main navigation" className="hidden items-center gap-3 whitespace-nowrap lg:flex xl:gap-6">
+        {links.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? "page" : undefined} className={`border-b-2 py-1 text-sm font-semibold transition-colors hover:text-destructive ${isActive(href) ? "border-destructive text-destructive" : "border-transparent text-foreground"}`}>
           {label}
         </Link>)}
       </nav>
@@ -55,7 +56,7 @@ export default function Header() {
       </div>
     </div>
     {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="border-t bg-white px-5 py-4 lg:hidden">
-      {links.map(([label, href]) => <Link key={label} href={href} aria-current={pathname === href ? "page" : undefined} onClick={() => setOpen(false)} className={`block rounded-lg px-3 py-3 text-sm font-semibold hover:bg-secondary ${pathname === href ? "bg-secondary text-destructive" : "text-primary"}`}>
+      {links.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? "page" : undefined} onClick={() => setOpen(false)} className={`block rounded-lg px-3 py-3 text-sm font-semibold hover:bg-secondary ${isActive(href) ? "bg-secondary text-destructive" : "text-primary"}`}>
         {label}
       </Link>)}
       <button type="button" aria-haspopup="dialog" aria-expanded={appointmentOpen} aria-controls="header-appointment-dialog" onClick={() => { appointmentTrigger.current = menuTrigger.current; setOpen(false); setAppointmentOpen(true); }} className="mt-2 block w-full rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-white">Book Appointment</button>

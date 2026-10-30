@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Brand from "./Brand";
 
-const quickLinks = [["Home", "/"], ["About Us", "/about"], ["Doctors", "/#doctors"], ["Services", "/services"], ["Gallery", "/gallery"], ["Contact Us", "/contact"]];
+const quickLinks = [["Home", "/"], ["About Us", "/about"], ["Facilities", "/facilities"], ["Services", "/services"], ["Gallery", "/gallery"], ["Blogs", "/blogs"], ["Contact Us", "/contact"]];
 const services = ["Maternity Care", "Women’s Health Care", "High Risk Pregnancy", "Infertility Care", "ENT (Ear, Nose, Throat)", "Head & Neck Surgery"];
 
 export default function Footer() {
