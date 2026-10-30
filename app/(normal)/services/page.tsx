@@ -1,9 +1,5 @@
-import React from 'react'
+import { redirect } from "next/navigation";
 
-function services() {
-  return (
-    <div>services</div>
-  )
+export default function ServicesPage() {
+  redirect("/services/ent");
 }
-
-export default services

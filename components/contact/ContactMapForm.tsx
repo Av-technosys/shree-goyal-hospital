@@ -43,15 +43,15 @@ export default function ContactMapForm() {
   }
 
   const inputClass =
-    "w-full min-w-0 rounded-xl border border-[#d4dfef] bg-white px-4 py-3 text-sm text-foreground placeholder:text-slate-400 outline-none transition-colors aria-invalid:border-red-400 focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-11";
+    "w-full min-w-0 rounded-xl border border-[#d4dfef] bg-white px-3.5 py-2.5 text-xs text-foreground placeholder:text-slate-400 outline-none transition-colors aria-invalid:border-red-400 focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-11 sm:px-4 sm:py-3 sm:text-sm";
 
   return (
     <section id="contact-form" className="mx-auto max-w-[1240px] px-5 py-6 sm:py-10 xl:px-0">
-      <div className="grid items-stretch gap-8 lg:grid-cols-2">
+      <div className="grid items-stretch gap-6 sm:gap-8 lg:grid-cols-2">
         {/* Hospital map */}
         <div
           data-motion-reveal
-          className="relative min-h-[460px] w-full overflow-hidden rounded-2xl border border-slate-200/80 shadow-[0_4px_20px_#00000008] sm:rounded-3xl lg:min-h-full"
+          className="relative min-h-[300px] sm:min-h-[440px] w-full overflow-hidden rounded-2xl border border-slate-200/80 shadow-[0_4px_20px_#00000008] sm:rounded-3xl lg:min-h-full"
         >
           <iframe
             title="Shree Goyal Hospital location in Ajmer"
@@ -75,7 +75,7 @@ export default function ContactMapForm() {
         {/* Contact form */}
         <div
           data-motion-reveal
-          className="relative flex flex-col justify-center rounded-2xl border border-[#d6e5f7] bg-[#eef5fc] p-6 shadow-[0_4px_24px_#00000008] sm:rounded-3xl sm:p-8 lg:p-9"
+          className="relative flex flex-col justify-center rounded-2xl border border-[#d6e5f7] bg-[#eef5fc] p-5 shadow-[0_4px_24px_#00000008] sm:rounded-3xl sm:p-8 lg:p-9"
         >
           <p className="mb-3 inline-flex self-start rounded-full bg-[#3981fa1a] px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
             SEND US A MESSAGE
@@ -83,13 +83,13 @@ export default function ContactMapForm() {
           <h2 className="text-2xl font-extrabold tracking-[-0.5px] text-primary sm:text-3xl">
             Get in Touch
           </h2>
-          <p className="mb-6 mt-1.5 text-sm text-foreground/80">
+          <p className="mb-6 mt-1.5 text-xs text-foreground/80 sm:text-sm">
             Fill out the form and our team will get back to you soon.
           </p>
 
-            <form noValidate onSubmit={handleSubmit} className="min-w-0">
-              <fieldset disabled={pending} className="grid min-w-0 gap-4 sm:grid-cols-2">
-                <legend className="sr-only">Contact details</legend>
+          <form noValidate onSubmit={handleSubmit} className="min-w-0">
+            <fieldset disabled={pending} className="grid min-w-0 gap-3 sm:gap-4 sm:grid-cols-2">
+              <legend className="sr-only">Contact details</legend>
               <label className="block">
                 <span className="sr-only">Your Name</span>
                 <input
@@ -166,7 +166,7 @@ export default function ContactMapForm() {
                   rows={4}
                   maxLength={2000}
                   placeholder="Your Message *"
-                  className={`${inputClass} min-h-[120px] resize-none py-3`}
+                  className={`${inputClass} min-h-[110px] resize-none py-3 sm:min-h-[120px]`}
                 />
                 {errors.message && <p id="contact-message-error" className="mt-2 text-xs text-red-600">{errors.message}</p>}
               </label>
@@ -179,8 +179,8 @@ export default function ContactMapForm() {
                 {pending ? <LoaderCircle size={16} className="animate-spin motion-reduce:animate-none" /> : <Send size={16} />}
                 {pending ? "Sending…" : "Send Message"}
               </button>
-              </fieldset>
-            </form>
+            </fieldset>
+          </form>
         </div>
       </div>
     </section>

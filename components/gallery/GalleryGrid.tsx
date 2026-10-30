@@ -18,14 +18,14 @@ const categories = [
 type Category = (typeof categories)[number]["name"];
 
 const photos = [
-  { title: "Reception & Lobby", file: "Reception & Lobby.png", categories: ["Hospital Infrastructure"], icon: Building2, width: 608, height: 395, featured: true },
-  { title: "Operation Theatre", file: "Operation Theatre.png", categories: ["Operation Theatre"], icon: Scissors, width: 608, height: 395, featured: true },
-  { title: "Maternity Room", file: "Maternity Room.png", categories: ["Maternity Care", "Patient Rooms"], icon: BedDouble, width: 398, height: 281, featured: false },
-  { title: "ENT Consultation", file: "ENT Consultation.png", categories: ["ENT Care"], icon: Stethoscope, width: 398, height: 281, featured: false },
-  { title: "Maternity Care", file: "Maternity Care.png", categories: ["Maternity Care"], icon: Baby, width: 398, height: 281, featured: false },
-  { title: "Patient Room", file: "Deluxe Patient Room.png", categories: ["Patient Rooms"], icon: BedDouble, width: 398, height: 281, featured: false },
-  { title: "In-House Pharmacy", file: "In-House Pharmacy.png", categories: ["Hospital Infrastructure"], icon: Pill, width: 398, height: 281, featured: false },
-  { title: "Our Team", file: "Doctors Team.png", categories: ["Our Team"], icon: UsersRound, width: 398, height: 281, featured: false },
+  { title: "Reception & Lobby", file: "Reception & Lobby.png", mobileFile: "reception-mobile.jpg", categories: ["Hospital Infrastructure"], icon: Building2, width: 608, height: 395, featured: true },
+  { title: "Operation Theatre", file: "Operation Theatre.png", mobileFile: "operation-mobile.jpg", categories: ["Operation Theatre"], icon: Scissors, width: 608, height: 395, featured: true },
+  { title: "Maternity Room", file: "Maternity Room.png", mobileFile: "maternityroom-mobile.jpg", categories: ["Maternity Care", "Patient Rooms"], icon: BedDouble, width: 398, height: 281, featured: false },
+  { title: "ENT Consultation", file: "ENT Consultation.png", mobileFile: "ent-mobile.jpg", categories: ["ENT Care"], icon: Stethoscope, width: 398, height: 281, featured: false },
+  { title: "Maternity Care", file: "Maternity Care.png", mobileFile: "maternitycare-mobile.jpg", categories: ["Maternity Care"], icon: Baby, width: 398, height: 281, featured: false },
+  { title: "Patient Room", file: "Deluxe Patient Room.png", mobileFile: "patientroom-mobile.jpg", categories: ["Patient Rooms"], icon: BedDouble, width: 398, height: 281, featured: false },
+  { title: "In-House Pharmacy", file: "In-House Pharmacy.png", mobileFile: "pharmacy-mobile.jpg", categories: ["Hospital Infrastructure"], icon: Pill, width: 398, height: 281, featured: false },
+  { title: "Our Team", file: "Doctors Team.png", mobileFile: "ourteam-mobile.jpg", categories: ["Our Team"], icon: UsersRound, width: 398, height: 281, featured: false },
 ];
 
 export default function GalleryGrid() {
@@ -58,7 +58,7 @@ export default function GalleryGrid() {
 
     <div className="mx-auto max-w-[1240px] px-5 pt-8 xl:px-0">
       <p className="sr-only" role="status">Showing {filtered.length} photos in {category}.</p>
-      <div data-motion-reveal id="gallery-photos" className={`grid gap-5 sm:grid-cols-2 ${category === "All" ? "lg:grid-cols-6" : "lg:grid-cols-3"}`}>
+      <div data-motion-reveal id="gallery-photos" className={`grid grid-cols-2 gap-3 sm:gap-5 ${category === "All" ? "lg:grid-cols-6" : "lg:grid-cols-3"}`}>
         <AnimatePresence initial={false} mode="popLayout">
           {filtered.map(photo => <motion.button
             key={photo.file}
@@ -72,11 +72,30 @@ export default function GalleryGrid() {
             aria-label={`View ${photo.title}`}
             aria-haspopup="dialog"
             onClick={event => { returnFocus.current = event.currentTarget; setSelected(photo.file); }}
-            className={`group relative self-start overflow-hidden rounded-xl bg-secondary text-left shadow-[0_3px_8px_#0b3d911a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${category === "All" ? photo.featured ? "lg:col-span-3" : "lg:col-span-2" : ""}`}
+            className={`group relative self-start overflow-hidden rounded-2xl sm:rounded-xl bg-secondary text-left shadow-[0_3px_8px_#0b3d911a] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${category === "All" ? photo.featured ? "lg:col-span-3" : "lg:col-span-2" : ""}`}
           >
-            <Image src={`/Gallery/${photo.file}`} alt={photo.title} width={photo.width} height={photo.height} sizes={category === "All" && photo.featured ? "(max-width: 639px) 100vw, 50vw" : "(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"} className="h-auto w-full" />
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-950/35 via-transparent to-transparent" />
-            <span className="absolute bottom-4 left-4 inline-flex max-w-[calc(100%_-_32px)] items-center gap-2 rounded-full bg-white/95 px-3 py-2 text-xs font-bold text-slate-900 shadow-sm backdrop-blur-sm"><photo.icon size={15} aria-hidden="true" className="shrink-0 text-[#0074e8]" />{photo.title}</span>
+            {/* Mobile optimized photo */}
+            <Image
+              src={`/Gallery/${photo.mobileFile}`}
+              alt={photo.title}
+              width={512}
+              height={279}
+              className="block sm:hidden h-auto w-full object-cover"
+            />
+            {/* Desktop / Tablet photo */}
+            <Image
+              src={`/Gallery/${photo.file}`}
+              alt={photo.title}
+              width={photo.width}
+              height={photo.height}
+              sizes={category === "All" && photo.featured ? "(max-width: 639px) 50vw, (max-width: 1023px) 50vw, 50vw" : "(max-width: 639px) 50vw, (max-width: 1023px) 50vw, 33vw"}
+              className="hidden sm:block h-auto w-full object-cover"
+            />
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-linear-to-t from-slate-950/45 via-transparent to-transparent" />
+            <span className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 inline-flex max-w-[calc(100%_-_16px)] sm:max-w-[calc(100%_-_32px)] items-center gap-1.5 sm:gap-2 rounded-full bg-white/95 px-2.5 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs font-bold text-slate-900 shadow-sm backdrop-blur-sm truncate">
+              <photo.icon size={13} aria-hidden="true" className="shrink-0 text-[#0074e8] sm:size-[15px]" />
+              <span className="truncate">{photo.title}</span>
+            </span>
           </motion.button>)}
         </AnimatePresence>
       </div>

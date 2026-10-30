@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { Ear } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 const facilitiesList = [
@@ -48,8 +48,8 @@ export default function KeyFacilities() {
                 sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <span className="absolute bottom-3 right-3 flex size-8 items-center justify-center rounded-full bg-primary text-white shadow-md">
-                <ArrowRight size={15} />
+              <span className="absolute bottom-3 right-3 flex size-12 items-center justify-center rounded-full border-2 border-white bg-[#eef5fc] text-primary shadow-md">
+                <Ear size={20} />
               </span>
             </div>
 
