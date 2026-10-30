@@ -1,5 +1,6 @@
 import "server-only";
 
+import { requireAdmin } from "@/lib/auth/session";
 import { cache } from "react";
 import { and, count, desc, eq, ilike } from "drizzle-orm";
 import { db } from "./index";
@@ -48,9 +49,9 @@ async function retryRead<T>(read: () => Promise<T>): Promise<T> {
   }
 }
 
-export async function getBlogCategories() { return retryRead(readBlogCategories); }
-export async function getAdminBlogs(filters: BlogFilters, page: number) { return retryRead(() => readAdminBlogs(filters, page)); }
-export async function getAdminBlog(id: string) { return retryRead(() => readAdminBlog(id)); }
+export async function getBlogCategories() { await requireAdmin(); return retryRead(readBlogCategories); }
+export async function getAdminBlogs(filters: BlogFilters, page: number) { await requireAdmin(); return retryRead(() => readAdminBlogs(filters, page)); }
+export async function getAdminBlog(id: string) { await requireAdmin(); return retryRead(() => readAdminBlog(id)); }
 
 export const getPublishedBlogs = cache(async () => retryRead(async () => {
   const rows = await db.select({ id: blogs.id, title: blogs.title, slug: blogs.slug, categoryId: blogs.categoryId, category: blogCategories.name, categorySlug: blogCategories.slug, publishDate: blogs.publishDate, metaDescription: blogs.metaDescription, content: blogs.content, updatedAt: blogs.updatedAt }).from(blogs).innerJoin(blogCategories, eq(blogs.categoryId, blogCategories.id)).where(eq(blogs.isDraft, false)).orderBy(desc(blogs.publishDate), desc(blogs.createdAt), desc(blogs.id));
@@ -63,3 +64,7 @@ export const getPublishedBlog = cache(async (slug: string) => retryRead(async ()
   const { updatedAt, ...article } = row;
   return { ...article, mainBannerImage: `/api/blogs/${encodeURIComponent(row.id)}/image?v=${updatedAt.getTime()}` };
 }));
+
+export async function getPublicBlogCategories() {
+  return retryRead(() => db.select({ id: blogCategories.id, name: blogCategories.name }).from(blogCategories).orderBy(blogCategories.name));
+}

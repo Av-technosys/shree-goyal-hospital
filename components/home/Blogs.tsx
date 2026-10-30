@@ -27,17 +27,17 @@ export default async function Blogs() {
       <div data-motion-stagger id="articles" className="grid gap-6 md:grid-cols-3">
         {articles.map(article => <article data-motion-hover="card" key={article.title} className="flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_15px_#0000000d]">
           <div className="relative">
-            <Image src={article.mainBannerImage} alt={article.title} width={398} height={224} sizes="(max-width: 767px) 100vw, 33vw" className="h-auto w-full" />
+            <Image src={article.mainBannerImage} alt={article.title} width={398} height={224} sizes="(max-width: 767px) 100vw, 33vw" className="aspect-[398/224] w-full object-cover" />
             <span className="absolute left-3 top-3 rounded-full bg-foreground px-3 py-1 text-[10px] font-bold text-white">
               {article.category}
             </span>
           </div>
 
           <div className="flex flex-1 flex-col p-6">
-            <h3 className="text-base font-extrabold leading-5 text-[#123866]">
+            <h3 className="line-clamp-2 min-h-10 text-base font-extrabold leading-5 text-[#123866]">
               {article.title}
             </h3>
-            <p className="mb-7 mt-3 text-sm leading-5">
+            <p className="mb-7 mt-3 line-clamp-3 min-h-[60px] text-sm leading-5">
               {article.metaDescription}
             </p>
 

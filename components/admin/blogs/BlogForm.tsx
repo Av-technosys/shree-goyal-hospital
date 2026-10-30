@@ -6,11 +6,10 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { ArrowLeft, ImagePlus, LoaderCircle, Save, X } from "lucide-react";
 import { toast } from "sonner";
-import { CenteredLoader, LoadingOverlay } from "@/components/ui/LoadingIndicator";
-import { saveBlogAction } from "@/app/admin/blogs/actions";
+import { saveBlogAction } from "@/helpers/admin/blog-actions";
 import { emptyBlog, MAX_BANNER_BYTES, slugify, validateBlogFields, type AdminBlog, type BlogCategory, type BlogFields } from "./blog-fields";
 
-const BlogEditor = dynamic(() => import("./BlogEditor"), { ssr: false, loading: () => <div className="min-h-[420px]"><CenteredLoader label="Loading editor…" /></div> });
+const BlogEditor = dynamic(() => import("./BlogEditor"), { ssr: false, loading: () => <div aria-label="Loading editor" className="h-[420px] rounded-xl bg-slate-100 motion-safe:animate-pulse" /> });
 
 type FormErrors = Partial<Record<keyof BlogFields, string>>;
 
@@ -27,6 +26,7 @@ export default function BlogForm({ initialBlog, categories }: { initialBlog?: Ad
   const blogId = existing?.id;
   const [initial] = useState<BlogFields>(() => existing ? { title: existing.title, slug: existing.slug, categoryId: existing.categoryId, publishDate: existing.publishDate, mainBannerImage: existing.mainBannerImage, authorName: existing.authorName, metaTitle: existing.metaTitle, metaDescription: existing.metaDescription, content: existing.content, isDraft: existing.isDraft } : { ...emptyBlog });
   const [values, setValues] = useState<BlogFields>(initial);
+  const [editorVersion, setEditorVersion] = useState(0);
   const [manualSlug, setManualSlug] = useState(Boolean(blogId));
   const [errors, setErrors] = useState<FormErrors>({});
   const [readingImage, setReadingImage] = useState(false);
@@ -116,7 +116,7 @@ export default function BlogForm({ initialBlog, categories }: { initialBlog?: Ad
     event.preventDefault();
     if (savingRef.current || readingImage) return;
     const next = validateBlogFields(values);
-    if (values.categoryId && !categories.some(category => category.id === values.categoryId)) next.categoryId = "Choose an available category.";
+    if (!categories.some(category => category.id === values.categoryId)) next.categoryId = "Choose an available category.";
     setErrors(next);
     setSubmitError("");
     if (Object.keys(next).length) {
@@ -144,17 +144,24 @@ export default function BlogForm({ initialBlog, categories }: { initialBlog?: Ad
       }
       allowNavigation.current = true;
       toast.success(blogId ? "Blog updated." : "Blog created.");
-      router.push("/admin/blogs");
+      if (!blogId) {
+        setValues({ ...emptyBlog });
+        setManualSlug(false);
+        setEditorVersion(value => value + 1);
+        imageFile.current = null;
+        form.current?.reset();
+      }
+      router.replace("/admin/blogs");
+      router.refresh();
     } catch { setSubmitError("The connection was interrupted. Your details are still here. Please try again."); toast.error("The blog could not be saved. Your details are still here."); }
     finally { savingRef.current = false; setSaving(false); }
   }
 
   return <>
-    {(saving || readingImage) && <LoadingOverlay label={saving ? "Saving blog…" : "Preparing image…"} />}
     <button type="button" onClick={cancel} disabled={saving} className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-primary"><ArrowLeft size={16} aria-hidden="true" />Back to blogs</button>
     <h1 className="text-2xl font-extrabold tracking-[-.6px] text-primary sm:text-3xl">{blogId ? "Edit blog" : "Add blog"}</h1>
     <p className="mt-3 text-sm leading-6 text-slate-500">{blogId ? "Update the article details below." : "Fill in the details for your new article."} Fields marked * are required.</p>
-    <form ref={form} noValidate onSubmit={submit} className="mt-8">
+    <form ref={form} autoComplete="off" noValidate onSubmit={submit} className="mt-8">
       <fieldset disabled={saving} className="min-w-0 space-y-7">
       <legend className="sr-only">Blog form</legend>
       <section aria-labelledby="blog-details-heading" className="space-y-6 rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-8">
@@ -188,7 +195,7 @@ export default function BlogForm({ initialBlog, categories }: { initialBlog?: Ad
         <h2 id="blog-content-heading" className="mb-6 text-lg font-bold text-primary">Article content</h2>
         <div>
           <p id="blog-content-label" className="mb-3 text-sm font-semibold">Content <span aria-hidden="true" className="text-red-600">*</span></p>
-          <BlogEditor id="blog-content" value={values.content} onChange={content => update("content", content)} disabled={saving} error={errors.content} />
+          <BlogEditor key={`${blogId ?? "new"}-${editorVersion}`} id="blog-content" value={values.content} onChange={content => update("content", content)} disabled={saving} error={errors.content} />
           {errors.content && <p id="blog-content-error" role="alert" className="mt-2 text-xs leading-5 text-red-600">{errors.content}</p>}
         </div>
       </section>

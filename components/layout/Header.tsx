@@ -4,18 +4,25 @@ import { CalendarDays, Menu, Phone, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import AppointmentDialog from "@/components/ui/AppointmentDialog";
 import Brand from "./Brand";
 
 const links = [["Home", "/"], ["About Us", "/about"], ["Facilities", "/facilities"], ["Services", "/services"], ["Gallery", "/gallery"], ["Blogs", "/blogs"], ["Contact", "/contact"]];
 
 export default function Header() {
+  return <Suspense fallback={<HeaderContent pathname="" />}><HeaderWithPathname /></Suspense>;
+}
+
+function HeaderWithPathname() {
+  return <HeaderContent pathname={usePathname()} />;
+}
+
+function HeaderContent({ pathname }: { pathname: string }) {
   const [open, setOpen] = useState(false);
   const [appointmentOpen, setAppointmentOpen] = useState(false);
   const appointmentTrigger = useRef<HTMLButtonElement>(null);
   const menuTrigger = useRef<HTMLButtonElement>(null);
-  const pathname = usePathname();
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(`${href}/`));
   return <header>
     <div className="bg-primary font-semibold text-white">

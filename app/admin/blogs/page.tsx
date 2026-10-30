@@ -1,3 +1,4 @@
+import { requireAdmin } from "@/lib/auth/session";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { connection } from "next/server";
@@ -11,6 +12,7 @@ type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
 async function BlogContent({ searchParams }: { searchParams: SearchParams }) {
   await connection();
+  await requireAdmin();
   const params = await searchParams;
   const single = (key: string) => typeof params[key] === "string" ? params[key] : "";
   let categories: BlogCategory[] = [];

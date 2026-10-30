@@ -7,7 +7,7 @@ import ArticleHeader from "@/components/blogs/article/ArticleHeader";
 import ArticleBody from "@/components/blogs/article/ArticleBody";
 import ArticleSidebar from "@/components/blogs/article/ArticleSidebar";
 import PageAnimations from "@/components/ui/PageAnimations";
-import { CenteredLoader } from "@/components/ui/LoadingIndicator";
+import { ArticleSkeleton } from "@/components/blogs/BlogSkeletons";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function BlogArticlePage({ params }: Props) {
-  return <Suspense fallback={<CenteredLoader label="Loading article…" />}><PublishedArticle params={params} /></Suspense>;
+  return <Suspense fallback={<ArticleSkeleton />}><PublishedArticle params={params} /></Suspense>;
 }
 
 async function PublishedArticle({ params }: Props) {

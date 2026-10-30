@@ -1,18 +1,22 @@
+import { requireAdmin } from "@/lib/auth/session";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { connection } from "next/server";
-import { CenteredLoader } from "@/components/ui/LoadingIndicator";
+import BlogFormSkeleton from "@/components/admin/blogs/BlogFormSkeleton";
 import BlogForm from "@/components/admin/blogs/BlogForm";
 import { getBlogCategories } from "@/lib/db/blogs";
 
 export const metadata: Metadata = { title: "Add blog" };
 
-async function AddBlogForm() {
+type Props = { searchParams: Promise<{ form?: string }> };
+
+async function AddBlogForm({ searchParams }: Props) {
   await connection();
-  const categories = await getBlogCategories();
-  return <BlogForm categories={categories} />;
+  await requireAdmin();
+  const [categories, search] = await Promise.all([getBlogCategories(), searchParams]);
+  return <BlogForm key={`new-blog-${search.form ?? "default"}`} categories={categories} />;
 }
 
-export default function AddBlogPage() {
-  return <Suspense fallback={<CenteredLoader label="Loading blog form…" />}><AddBlogForm /></Suspense>;
+export default function AddBlogPage({ searchParams }: Props) {
+  return <Suspense fallback={<BlogFormSkeleton />}><AddBlogForm searchParams={searchParams} /></Suspense>;
 }

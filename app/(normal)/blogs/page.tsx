@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import { connection } from "next/server";
-import { getBlogCategories, getPublishedBlogs } from "@/lib/db/blogs";
-import { CenteredLoader } from "@/components/ui/LoadingIndicator";
+import { getPublicBlogCategories, getPublishedBlogs } from "@/lib/db/blogs";
 import type { Metadata } from "next";
 import BlogHero from "@/components/blogs/BlogHero";
 import BlogContent from "@/components/blogs/BlogContent";
@@ -16,22 +15,32 @@ export const metadata: Metadata = {
 export default function BlogsPage() {
   return <PageAnimations revealOnScroll={false}>
     <BlogHero />
-    <Suspense fallback={<section aria-label="Loading articles" className="min-h-[640px]"><CenteredLoader label="Loading articles…" /></section>}><PublishedArticles /></Suspense>
+    <Suspense fallback={<BlogContent posts={[]} loading />}><PublishedArticles /></Suspense>
     <Newsletter />
   </PageAnimations>;
 }
 
 async function PublishedArticles() {
   await connection();
-  let posts;
   let categories;
   try {
-    [posts, categories] = await Promise.all([getPublishedBlogs(), getBlogCategories()]);
+    categories = await getPublicBlogCategories();
+  } catch {
+    return <BlogContent posts={[]} loadError />;
+  }
+  const options = categories.map(({ id, name }) => ({ id, name }));
+  return <Suspense fallback={<BlogContent posts={[]} categories={options} loading />}><PublishedPosts categories={options} /></Suspense>;
+}
+
+async function PublishedPosts({ categories }: { categories: { id: string; name: string }[] }) {
+  let posts;
+  try {
+    posts = await getPublishedBlogs();
   } catch (error) {
     const cause = error instanceof Error && error.cause ? error.cause : error;
     const code = typeof cause === "object" && cause && "code" in cause ? cause.code : "UNKNOWN";
     console.error("Public blog loading failed:", code);
-    return <BlogContent posts={[]} loadError />;
+    return <BlogContent posts={[]} categories={categories} loadError />;
   }
-  return <BlogContent posts={posts} categories={categories.map(({ id, name }) => ({ id, name }))} />;
+  return <BlogContent posts={posts} categories={categories} />;
 }

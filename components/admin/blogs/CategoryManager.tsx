@@ -3,10 +3,9 @@
 import { useRef, useState, useTransition, type FormEvent } from "react";
 import { Dialog } from "radix-ui";
 import { LoaderCircle, Pencil, Plus, Tags, Trash2, X } from "lucide-react";
-import { LoadingOverlay } from "@/components/ui/LoadingIndicator";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { deleteCategoryAction, saveCategoryAction } from "@/app/admin/blogs/actions";
+import { deleteCategoryAction, saveCategoryAction } from "@/helpers/admin/blog-actions";
 import { slugify, type BlogCategory } from "./blog-fields";
 
 export default function CategoryManager({ categories }: { categories: BlogCategory[] }) {
@@ -79,7 +78,6 @@ export default function CategoryManager({ categories }: { categories: BlogCatego
     if (!value && dirty && !window.confirm("Discard unsaved category changes?")) return;
     setOpen(value); if (!value) reset();
   }}>
-    {pending && <LoadingOverlay label="Updating categories…" />}
     <Dialog.Trigger className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-semibold text-primary hover:bg-secondary"><Tags size={17} aria-hidden="true" />Manage Categories</Dialog.Trigger>
     <Dialog.Portal>
       <Dialog.Overlay className="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm" />

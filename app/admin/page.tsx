@@ -1,22 +1,28 @@
-import Link from "next/link";
-import { ArrowRight, CalendarDays, Newspaper } from "lucide-react";
+import { requireAdmin } from "@/lib/auth/session";
+import { Suspense } from "react";
+import { connection } from "next/server";
+import { count } from "drizzle-orm";
+import { db } from "@/lib/db";
+import { appointments, blogs, contactMessages } from "@/lib/db/schema";
+import DashboardCards from "@/components/admin/DashboardCards";
 
-const sections = [
-  { title: "Blogs", description: "Your hospital’s articles and health insights.", href: "/admin/blogs", icon: Newspaper },
-  { title: "Appointments", description: "Patient appointment requests in one place.", href: "/admin/appointments", icon: CalendarDays },
-];
+async function DashboardCounts() {
+  await connection();
+  await requireAdmin();
+  let counts;
+  try {
+    counts = await Promise.all([db.select({ total: count() }).from(blogs), db.select({ total: count() }).from(appointments), db.select({ total: count() }).from(contactMessages)]);
+  } catch {
+    return <p role="alert" className="mt-8 rounded-xl border border-slate-200 bg-white p-6 text-sm text-slate-500">Counts are temporarily unavailable. Refresh to try again.</p>;
+  }
+  const [[blogCount], [appointmentCount], [messageCount]] = counts;
+  return <DashboardCards blogs={blogCount.total} appointments={appointmentCount.total} messages={messageCount.total} />;
+}
 
 export default function AdminDashboard() {
   return <>
     <h1 className="text-2xl font-extrabold tracking-[-.6px] text-primary sm:text-3xl">Dashboard</h1>
-    <p className="mt-3 text-sm leading-6 text-slate-500">Welcome, Admin. Here’s your hospital workspace.</p>
-    <div className="mt-8 grid gap-5 lg:grid-cols-2">
-      {sections.map(({ title, description, href, icon: Icon }) => <Link key={href} href={href} className="group rounded-2xl border border-slate-200/80 bg-white p-6 transition-colors hover:border-primary/30 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:p-8">
-        <span className="mb-6 flex size-12 items-center justify-center rounded-xl bg-secondary text-primary"><Icon size={23} strokeWidth={1.8} aria-hidden="true" /></span>
-        <h2 className="text-lg font-bold text-primary">{title}</h2>
-        <p className="mt-2 text-sm leading-6 text-slate-500">{description}</p>
-        <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-primary">View {title.toLowerCase()}<ArrowRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-1 motion-reduce:transition-none" /></span>
-      </Link>)}
-    </div>
+    <p className="mt-3 text-sm leading-6 text-slate-500">Welcome, Admin. Here’s your hospital at a glance.</p>
+    <Suspense fallback={<DashboardCards blogs={0} appointments={0} loading />}><DashboardCounts /></Suspense>
   </>;
 }

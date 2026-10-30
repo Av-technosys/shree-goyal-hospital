@@ -6,10 +6,9 @@ import StarterKit from "@tiptap/starter-kit";
 import { TableKit } from "@tiptap/extension-table";
 import { Eye, LoaderCircle, Pencil } from "lucide-react";
 import { toast } from "sonner";
-import { previewBlogContentAction } from "@/app/admin/blogs/actions";
+import { previewBlogContentAction } from "@/helpers/admin/blog-actions";
 import { blogContentToHtml, getBlogContentText, normalizeBlogLink } from "@/lib/blog-content";
 import BlogContentFrame from "@/components/blogs/article/BlogContentFrame";
-import { CenteredLoader, LoadingOverlay } from "@/components/ui/LoadingIndicator";
 import { BlogSpacing } from "./editor-commands";
 import BlogEditorToolbar from "./BlogEditorToolbar";
 
@@ -47,12 +46,11 @@ export default function BlogEditor({ id, value, onChange, disabled, error }: { i
     finally { setPreviewBusy(false); }
   }
 
-  if (!editor) return <div className="min-h-[420px]"><CenteredLoader label="Loading editor…" /></div>;
+  if (!editor) return <div aria-label="Loading editor" className="h-[420px] rounded-xl bg-slate-100 motion-safe:animate-pulse" />;
   const text = getBlogContentText(value);
   const wordCount = text ? text.split(/\s+/).length : 0;
 
   return <div className="min-w-0">
-    {previewBusy && <LoadingOverlay label="Preparing preview…" />}
     <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
       <p className="text-xs leading-5 text-slate-500">The blog title is H1. Use H2 for sections and H3–H4 for subsections.</p>
       <div role="group" aria-label="Content view" className="inline-flex gap-1 rounded-lg bg-slate-100 p-1">

@@ -1,3 +1,4 @@
+import { requireAdmin } from "@/lib/auth/session";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { connection } from "next/server";
@@ -14,6 +15,7 @@ const pageSize = 10;
 
 async function AppointmentsContent({ searchParams }: { searchParams: SearchParams }) {
   await connection();
+  await requireAdmin();
   const params = await searchParams;
   const single = (key: string) => typeof params[key] === "string" ? params[key] : "";
   const query = single("q").trim().slice(0, 100);

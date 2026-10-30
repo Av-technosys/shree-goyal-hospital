@@ -1,5 +1,6 @@
 "use server";
 
+import { requireAdmin } from "@/lib/auth/session";
 import { randomUUID } from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { eq, sql } from "drizzle-orm";
@@ -25,6 +26,7 @@ function databaseError(error: unknown) {
 }
 
 export async function saveBlogAction(data: FormData): Promise<MutationResult<{ id: string }>> {
+  await requireAdmin();
   const id = text(data, "id");
   const image = data.get("image");
   const keepImage = text(data, "keepImage") === "true";
@@ -52,12 +54,12 @@ export async function saveBlogAction(data: FormData): Promise<MutationResult<{ i
     if (!category) return { success: false, message: "Choose an available category.", errors: { categoryId: "This category is no longer available." } };
     const fields = { title: values.title, slug: values.slug, categoryId: values.categoryId, publishDate: values.publishDate, authorName: values.authorName, metaTitle: values.metaTitle, metaDescription: values.metaDescription, content: values.content, isDraft: values.isDraft };
     const blogId = id || randomUUID();
+    if (!id && !banner) return { success: false, message: "Choose a banner image.", errors: { mainBannerImage: "Choose a banner image." } };
     if (id) {
       const changed = await db.update(blogs).set({ ...fields, ...(banner ? { mainBannerImage: banner } : {}), updatedAt: new Date() }).where(eq(blogs.id, id)).returning({ id: blogs.id });
       if (!changed.length) return { success: false, message: "This blog no longer exists. Refresh the list." };
     } else {
-      if (!banner) return { success: false, message: "Choose a banner image.", errors: { mainBannerImage: "Choose a banner image." } };
-      await db.insert(blogs).values({ id: blogId, ...fields, mainBannerImage: banner });
+      await db.insert(blogs).values({ id: blogId, ...fields, mainBannerImage: banner! });
     }
     revalidatePath("/admin/blogs");
     revalidatePath("/blogs", "layout");
@@ -70,6 +72,7 @@ export async function saveBlogAction(data: FormData): Promise<MutationResult<{ i
 }
 
 export async function previewBlogContentAction(content: string): Promise<{ html?: string; error?: string }> {
+  await requireAdmin();
   if (typeof content !== "string" || content.length > MAX_BLOG_CONTENT_LENGTH) return { error: "Keep the article content within 100,000 characters, including formatting." };
   const html = sanitizeBlogContent(content);
   if (html.length > MAX_BLOG_CONTENT_LENGTH) return { error: "Keep the article content within 100,000 characters, including formatting." };
@@ -77,6 +80,7 @@ export async function previewBlogContentAction(content: string): Promise<{ html?
 }
 
 export async function deleteBlogAction(id: string): Promise<MutationResult> {
+  await requireAdmin();
   if (typeof id !== "string" || !id || id.length > 200) return { success: false, message: "Invalid blog reference." };
   try {
     await db.delete(blogs).where(eq(blogs.id, id));
@@ -88,6 +92,7 @@ export async function deleteBlogAction(id: string): Promise<MutationResult> {
 }
 
 export async function saveCategoryAction(data: FormData): Promise<MutationResult> {
+  await requireAdmin();
   const id = text(data, "id");
   const name = text(data, "name");
   const slug = text(data, "slug");
@@ -107,6 +112,7 @@ export async function saveCategoryAction(data: FormData): Promise<MutationResult
 }
 
 export async function deleteCategoryAction(id: string): Promise<MutationResult> {
+  await requireAdmin();
   if (typeof id !== "string" || !id || id.length > 200) return { success: false, message: "Invalid category reference." };
   try {
     await db.delete(blogCategories).where(eq(blogCategories.id, id));
