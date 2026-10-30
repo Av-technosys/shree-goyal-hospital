@@ -19,7 +19,7 @@ export default function CareHighlights({ servicesHref = "#services" }: { service
             data-motion-hover="card"
             key={item.title}
             href={item.href === "#services" ? servicesHref : item.href}
-            className="flex min-w-0 basis-full break-words shrink-0 snap-start items-start gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_14px_-4px_#0b3d911a] sm:shadow-[0_8px_30px_#0000000d] transition-shadow hover:shadow-md sm:w-auto sm:basis-auto sm:min-h-[94px] sm:rounded-xl"
+            className="flex min-w-0 basis-[calc(80%-8px)] break-words shrink-0 snap-start items-start gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_4px_14px_-4px_#0b3d911a] sm:shadow-[0_8px_30px_#0000000d] transition-shadow hover:shadow-md sm:w-auto sm:basis-auto sm:min-h-[94px] sm:rounded-xl"
           >
             <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#3981fa1a]">
               <Image src={`/Home/${item.image}.png`} alt="" width={item.width} height={item.height} />
