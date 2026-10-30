@@ -22,6 +22,8 @@ export default function SmoothScroll() {
       stopInertiaOnNavigate: true,
     });
 
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+
     function syncScrollLock() {
       const bodyOverflow = getComputedStyle(document.body).overflowY;
       const root = document.documentElement;
@@ -42,6 +44,7 @@ export default function SmoothScroll() {
     syncScrollLock();
 
     return () => {
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
       observer.disconnect();
       lenis.destroy();
     };

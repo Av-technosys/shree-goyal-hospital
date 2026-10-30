@@ -37,12 +37,15 @@ export default function ComfortFacilities() {
         </p>
       </div>
 
-      <div data-motion-stagger className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div
+        data-motion-stagger
+        className="mt-10 flex overflow-x-auto gap-4 pb-4 pt-1 px-5 -mx-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
+      >
         {comfortItems.map(({ title, icon: Icon }) => (
           <article
             key={title}
             data-motion-hover="card"
-            className="flex min-h-[160px] flex-col items-center justify-center rounded-2xl border border-blue-100 bg-[#f0f6ff]/70 p-6 text-center shadow-xs transition-shadow hover:shadow-md"
+            className="flex w-[240px] min-[390px]:w-[260px] shrink-0 snap-start min-h-[160px] flex-col items-center justify-center rounded-2xl border border-blue-100 bg-[#f0f6ff]/70 p-6 text-center shadow-xs transition-shadow hover:shadow-md sm:w-auto"
           >
             <span className="flex size-12 items-center justify-center rounded-2xl bg-primary text-white shadow-sm mb-4">
               <Icon size={22} />

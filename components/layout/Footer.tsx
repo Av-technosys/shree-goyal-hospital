@@ -3,7 +3,14 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import Brand from "./Brand";
 
 const quickLinks = [["Home", "/"], ["About Us", "/about"], ["Facilities", "/facilities"], ["Services", "/services"], ["Gallery", "/gallery"], ["Blogs", "/blogs"], ["Contact Us", "/contact"]];
-const services = ["Maternity Care", "Women’s Health Care", "High Risk Pregnancy", "Infertility Care", "ENT (Ear, Nose, Throat)", "Head & Neck Surgery"];
+const services = [
+  { label: "Maternity Care", href: "/services/maternity" },
+  { label: "Women’s Health Care", href: "/services/maternity#antenatal-care" },
+  { label: "High Risk Pregnancy", href: "/services/maternity#high-risk-delivery" },
+  { label: "Infertility Care", href: "/services/maternity#high-risk-delivery" },
+  { label: "ENT (Ear, Nose, Throat)", href: "/services/ent" },
+  { label: "Head & Neck Surgery", href: "/services/ent#throat-voice" },
+];
 
 export default function Footer() {
   return <footer className="border-t border-slate-100">
@@ -34,8 +41,8 @@ export default function Footer() {
 
           <div className="mb-6 mt-2 h-0.5 w-12 bg-[#123866]" />
           <ul className="space-y-2 text-sm">
-            {services.map(label => <li key={label}>
-              <a href="/services" className="hover:text-primary hover:underline">
+            {services.map(({ label, href }) => <li key={label}>
+              <a href={href} className="hover:text-primary hover:underline">
                 {label}
               </a>
             </li>)}

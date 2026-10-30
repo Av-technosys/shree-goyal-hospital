@@ -25,13 +25,17 @@ const highlights = [
 
 export default function FacilitiesHighlights() {
   return (
-    <section aria-label="Key highlights" className="relative z-10 mx-auto -mt-14 sm:-mt-16 lg:-mt-20 max-w-[1240px] px-5 pb-10 sm:pb-14 xl:px-0">
-      <div data-motion-stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <section aria-label="Key highlights" className="relative z-10 mx-auto -mt-12 sm:-mt-16 lg:-mt-20 max-w-[1240px] px-5 pb-10 sm:pb-14 xl:px-0">
+      {/* Mobile: Horizontal Swipeable Carousel (Peek next card) | Desktop: 4-Column Grid */}
+      <div
+        data-motion-stagger
+        className="flex overflow-x-auto gap-4 pb-4 pt-1 px-5 -mx-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible lg:grid-cols-4"
+      >
         {highlights.map(({ icon: Icon, title, desc }) => (
           <article
             key={title}
             data-motion-hover="card"
-            className="flex items-start gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-[0_8px_30px_#0000000d] transition-all duration-300 hover:shadow-xl"
+            className="flex w-[260px] min-[380px]:w-[280px] shrink-0 snap-start items-start gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-[0_8px_30px_#0000000d] transition-all duration-300 hover:shadow-xl sm:w-auto"
           >
             <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#3981fa1a] text-primary">
               <Icon size={22} />
