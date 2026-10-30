@@ -1,4 +1,5 @@
-import { boolean, date, foreignKey, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
+import { boolean, check, date, foreignKey, index, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
 export const blogCategories = pgTable("blog_categories", {
   id: text("id").primaryKey(),
@@ -28,4 +29,31 @@ export const blogs = pgTable("blogs", {
     columns: [table.categoryId],
     foreignColumns: [blogCategories.id],
   }).onDelete("restrict"),
+]);
+
+export const appointments = pgTable("appointments", {
+  id: text("id").primaryKey(),
+  fullName: text("full_name").notNull(),
+  phone: text("phone").notNull(),
+  email: text("email").notNull(),
+  department: text("department").notNull(),
+  doctor: text("doctor"),
+  preferredAt: timestamp("preferred_at", { withTimezone: true }).notNull(),
+  message: text("message"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+}, table => [
+  check("appointments_phone_e164_check", sql`${table.phone} ~ '^[+][1-9][0-9]{1,14}$'`),
+]);
+
+export const contactMessages = pgTable("contact_messages", {
+  id: text("id").primaryKey(),
+  fullName: text("full_name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone").notNull(),
+  department: text("department").notNull(),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+}, table => [
+  index("contact_messages_created_at_idx").on(table.createdAt),
+  check("contact_messages_phone_e164_check", sql`${table.phone} ~ '^[+][1-9][0-9]{1,14}$'`),
 ]);

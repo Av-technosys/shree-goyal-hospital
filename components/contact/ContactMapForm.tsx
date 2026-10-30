@@ -1,25 +1,54 @@
 "use client";
 
-import { CheckCircle2, MapPin, Send } from "lucide-react";
-import { useState, type FormEvent } from "react";
+import { LoaderCircle, MapPin, Send } from "lucide-react";
+import { toast } from "sonner";
+import { useRef, useState, type FormEvent } from "react";
+
+import { submitContactMessage } from "@/helpers/contact-actions";
+import { contactDepartments, validateContactMessage, type ContactErrors } from "@/lib/contact-messages";
 
 const mapUrl = "https://www.google.com/maps/search/?api=1&query=Shree+Goyal+Hospital+Balupura+Road+Ajmer";
 
 export default function ContactMapForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [errors, setErrors] = useState<ContactErrors>({});
+  const requestId = useRef<string | null>(null);
+  const submitting = useRef(false);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    if (submitting.current) return;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const text = (key: string) => String(data.get(key) ?? "");
+    const { errors: validation } = validateContactMessage({ name: text("name"), email: text("email"), phone: text("phone"), department: text("department"), message: text("message") });
+    setErrors(validation);
+    if (Object.keys(validation).length) {
+      toast.error("Please check the highlighted fields.");
+      requestAnimationFrame(() => form.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus());
+      return;
+    }
+    requestId.current ??= crypto.randomUUID();
+    data.set("requestId", requestId.current);
+    submitting.current = true; setPending(true);
+    try {
+      const result = await submitContactMessage(data);
+      setErrors(result.errors ?? {});
+      if (result.success) { form.reset(); requestId.current = null; toast.success(result.message); }
+      else toast.error(result.message);
+    } catch {
+      const message = "The connection was interrupted. Your details are still here. Please try again.";
+      toast.error(message);
+    } finally { submitting.current = false; setPending(false); }
   }
 
   const inputClass =
-    "w-full min-w-0 rounded-xl border border-[#d4dfef] bg-white px-4 py-3 text-sm text-foreground placeholder:text-slate-400 outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-11";
+    "w-full min-w-0 rounded-xl border border-[#d4dfef] bg-white px-4 py-3 text-sm text-foreground placeholder:text-slate-400 outline-none transition-colors aria-invalid:border-red-400 focus:border-primary focus:ring-2 focus:ring-primary/10 min-h-11";
 
   return (
     <section id="contact-form" className="mx-auto max-w-[1240px] px-5 py-6 sm:py-10 xl:px-0">
       <div className="grid items-stretch gap-8 lg:grid-cols-2">
-        {/* Left Column: Interactive Map */}
+        {/* Hospital map */}
         <div
           data-motion-reveal
           className="relative min-h-[460px] w-full overflow-hidden rounded-2xl border border-slate-200/80 shadow-[0_4px_20px_#00000008] sm:rounded-3xl lg:min-h-full"
@@ -43,7 +72,7 @@ export default function ContactMapForm() {
           </a>
         </div>
 
-        {/* Right Column: Contact Form */}
+        {/* Contact form */}
         <div
           data-motion-reveal
           className="relative flex flex-col justify-center rounded-2xl border border-[#d6e5f7] bg-[#eef5fc] p-6 shadow-[0_4px_24px_#00000008] sm:rounded-3xl sm:p-8 lg:p-9"
@@ -58,75 +87,63 @@ export default function ContactMapForm() {
             Fill out the form and our team will get back to you soon.
           </p>
 
-          {submitted ? (
-            <div
-              role="status"
-              className="rounded-2xl border border-blue-200 bg-white p-6 text-center shadow-sm"
-            >
-              <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-                <CheckCircle2 size={24} />
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-slate-900">Thank You!</h3>
-              <p className="mt-2 text-sm leading-6 text-foreground">
-                Your message has been received. Our team will review your enquiry and get back to you shortly.
-              </p>
-              <div className="mt-4 rounded-xl bg-secondary p-3 text-xs text-foreground">
-                For urgent emergencies or quick appointments, call us directly at{" "}
-                <a href="tel:+918432214377" className="font-bold text-primary underline">
-                  +91 0843 221 4377
-                </a>
-                .
-              </div>
-              <button
-                type="button"
-                onClick={() => setSubmitted(false)}
-                className="mt-5 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-xs font-bold text-white transition-colors hover:bg-[#092f70]"
-              >
-                Send Another Message
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
+            <form noValidate onSubmit={handleSubmit} className="min-w-0">
+              <fieldset disabled={pending} className="grid min-w-0 gap-4 sm:grid-cols-2">
+                <legend className="sr-only">Contact details</legend>
               <label className="block">
                 <span className="sr-only">Your Name</span>
                 <input
                   type="text"
+                  autoComplete="name"
                   name="name"
+                  aria-invalid={Boolean(errors.name)}
+                  aria-describedby={errors.name ? "contact-name-error" : undefined}
                   required
                   maxLength={100}
                   placeholder="Your Name *"
                   className={inputClass}
                 />
+                {errors.name && <p id="contact-name-error" className="mt-2 text-xs text-red-600">{errors.name}</p>}
               </label>
 
               <label className="block">
                 <span className="sr-only">Your Email</span>
                 <input
                   type="email"
+                  autoComplete="email"
+                  maxLength={254}
                   name="email"
+                  aria-invalid={Boolean(errors.email)}
+                  aria-describedby={errors.email ? "contact-email-error" : undefined}
                   required
                   placeholder="Your Email *"
                   className={inputClass}
                 />
+                {errors.email && <p id="contact-email-error" className="mt-2 text-xs text-red-600">{errors.email}</p>}
               </label>
 
               <label className="block">
                 <span className="sr-only">Mobile Number</span>
                 <input
                   type="tel"
+                  autoComplete="tel"
                   name="phone"
+                  aria-invalid={Boolean(errors.phone)}
+                  aria-describedby={errors.phone ? "contact-phone-error" : undefined}
                   required
-                  pattern="[+]?[0-9][0-9 ]{9,14}"
-                  maxLength={16}
-                  placeholder="Mobile Number *"
+                  maxLength={30}
+                  placeholder="Mobile Number (+91 default) *"
                   className={inputClass}
                 />
+                {errors.phone && <p id="contact-phone-error" className="mt-2 text-xs text-red-600">{errors.phone}</p>}
               </label>
 
               <label className="block">
                 <span className="sr-only">Select Department</span>
                 <select
                   name="department"
+                  aria-invalid={Boolean(errors.department)}
+                  aria-describedby={errors.department ? "contact-department-error" : undefined}
                   defaultValue=""
                   required
                   className={`${inputClass} text-slate-700`}
@@ -134,34 +151,36 @@ export default function ContactMapForm() {
                   <option value="" disabled>
                     Select Department
                   </option>
-                  <option value="Maternity & Gynaecology">Maternity &amp; Gynaecology</option>
-                  <option value="ENT (Ear, Nose, Throat)">ENT (Ear, Nose, Throat)</option>
-                  <option value="Pediatrics & Child Health">Pediatrics &amp; Child Health</option>
-                  <option value="General Consultation">General Consultation</option>
+                  {contactDepartments.map(name => <option key={name} value={name}>{name}</option>)}
                 </select>
+                {errors.department && <p id="contact-department-error" className="mt-2 text-xs text-red-600">{errors.department}</p>}
               </label>
 
               <label className="block sm:col-span-2">
                 <span className="sr-only">Your Message</span>
                 <textarea
                   name="message"
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={errors.message ? "contact-message-error" : undefined}
                   required
                   rows={4}
+                  maxLength={2000}
                   placeholder="Your Message *"
                   className={`${inputClass} min-h-[120px] resize-none py-3`}
                 />
+                {errors.message && <p id="contact-message-error" className="mt-2 text-xs text-red-600">{errors.message}</p>}
               </label>
 
               <button
                 type="submit"
                 data-motion-hover="button"
-                className="mt-2 flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-bold text-white shadow-[0_5px_10px_#0b3d9126] transition-colors hover:bg-[#092f70] sm:col-span-2"
+                className="mt-2 flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-bold text-white shadow-[0_5px_10px_#0b3d9126] transition-colors hover:bg-[#092f70] disabled:cursor-wait disabled:opacity-60 sm:col-span-2"
               >
-                <Send size={16} />
-                Send Message
+                {pending ? <LoaderCircle size={16} className="animate-spin motion-reduce:animate-none" /> : <Send size={16} />}
+                {pending ? "Sending…" : "Send Message"}
               </button>
+              </fieldset>
             </form>
-          )}
         </div>
       </div>
     </section>

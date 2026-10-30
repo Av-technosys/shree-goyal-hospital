@@ -1,0 +1,3 @@
+export default function LoginSkeleton() {
+  return <main aria-busy="true" aria-label="Checking sign-in" className="flex min-h-dvh items-center justify-center bg-[#f6f8fc] px-5 py-10"><div aria-hidden="true" className="w-full max-w-[460px] space-y-6 rounded-3xl border border-slate-200/80 bg-white p-6 motion-safe:animate-pulse sm:p-10"><div className="h-12 w-52 rounded-lg bg-slate-100" /><div className="h-9 w-48 rounded-lg bg-slate-100" /><div className="h-5 w-64 max-w-full rounded bg-slate-100" /><div className="h-12 rounded-xl bg-slate-100" /><div className="h-12 rounded-xl bg-slate-100" /><div className="h-12 rounded-xl bg-slate-100" /></div></main>;
+}
