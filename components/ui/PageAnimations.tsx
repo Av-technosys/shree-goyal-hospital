@@ -5,7 +5,7 @@ import { useEffect, type ReactNode } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-export default function PageAnimations({ children }: { children: ReactNode }) {
+export default function PageAnimations({ children, revealOnScroll = true }: { children: ReactNode; revealOnScroll?: boolean }) {
   const [scope, animate] = useAnimate<HTMLElement>();
   const reducedMotion = useReducedMotion();
 
@@ -40,12 +40,14 @@ export default function PageAnimations({ children }: { children: ReactNode }) {
       }, { margin: "0px 0px -24px 0px", amount: 0.08 }));
     }
 
-    root.querySelectorAll<HTMLElement>("[data-motion-reveal]").forEach(element => reveal(element));
-    root.querySelectorAll<HTMLElement>("[data-motion-stagger]").forEach(group => {
-      Array.from(group.children).forEach((element, index) => {
-        if (element instanceof HTMLElement) reveal(element, (index % 4) * 0.08);
+    if (revealOnScroll) {
+      root.querySelectorAll<HTMLElement>("[data-motion-reveal]").forEach(element => reveal(element));
+      root.querySelectorAll<HTMLElement>("[data-motion-stagger]").forEach(group => {
+        Array.from(group.children).forEach((element, index) => {
+          if (element instanceof HTMLElement) reveal(element, (index % 4) * 0.08);
+        });
       });
-    });
+    }
 
     if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
       root.querySelectorAll<HTMLElement>("[data-motion-hover]").forEach(element => {
@@ -74,7 +76,7 @@ export default function PageAnimations({ children }: { children: ReactNode }) {
       scope.animations.forEach(animation => animation.stop());
       originals.forEach((styles, element) => Object.assign(element.style, styles));
     };
-  }, [animate, reducedMotion, scope]);
+  }, [animate, reducedMotion, revealOnScroll, scope]);
 
   return <main ref={scope}>{children}</main>;
 }

@@ -1,9 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    localPatterns: [
+      { pathname: "/**", search: "" },
+      { pathname: "/api/blogs/*/image" },
+      { pathname: "/api/admin/blogs/*/image" },
+    ],
+  },
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: { serverActions: { bodySizeLimit: "2mb" } },
   turbopack: {
     rules: {
       "*.css": {

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import PageAnimations from "@/components/ui/PageAnimations";
 import Hero from "@/components/home/Hero";
 import CareHighlights from "@/components/ui/CareHighlights";
@@ -20,7 +21,7 @@ export default function Home() {
     <WhyChooseUs />
     <Doctors />
     <AppointmentSection />
-    <Blogs />
+    <Suspense fallback={null}><Blogs /></Suspense>
     <Testimonials />
     <Location />
     <FAQ />

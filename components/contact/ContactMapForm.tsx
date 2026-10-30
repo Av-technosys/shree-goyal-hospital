@@ -1,16 +1,18 @@
 "use client";
 
-import { CheckCircle2, MapPin, Send } from "lucide-react";
+import { MapPin, Send } from "lucide-react";
+import { toast } from "sonner";
 import { useState, type FormEvent } from "react";
 
 const mapUrl = "https://www.google.com/maps/search/?api=1&query=Shree+Goyal+Hospital+Balupura+Road+Ajmer";
 
 export default function ContactMapForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [showContactNotice, setShowContactNotice] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    setShowContactNotice(true);
+    toast.info("Online messages are not available yet.", { description: "Please call +91 8432214377 to contact our team." });
   }
 
   const inputClass =
@@ -19,7 +21,7 @@ export default function ContactMapForm() {
   return (
     <section id="contact-form" className="mx-auto max-w-[1240px] px-5 py-6 sm:py-10 xl:px-0">
       <div className="grid items-stretch gap-8 lg:grid-cols-2">
-        {/* Left Column: Interactive Map */}
+        {/* Hospital map */}
         <div
           data-motion-reveal
           className="relative min-h-[460px] w-full overflow-hidden rounded-2xl border border-slate-200/80 shadow-[0_4px_20px_#00000008] sm:rounded-3xl lg:min-h-full"
@@ -43,7 +45,7 @@ export default function ContactMapForm() {
           </a>
         </div>
 
-        {/* Right Column: Contact Form */}
+        {/* Contact form */}
         <div
           data-motion-reveal
           className="relative flex flex-col justify-center rounded-2xl border border-[#d6e5f7] bg-[#eef5fc] p-6 shadow-[0_4px_24px_#00000008] sm:rounded-3xl sm:p-8 lg:p-9"
@@ -58,35 +60,7 @@ export default function ContactMapForm() {
             Fill out the form and our team will get back to you soon.
           </p>
 
-          {submitted ? (
-            <div
-              role="status"
-              className="rounded-2xl border border-blue-200 bg-white p-6 text-center shadow-sm"
-            >
-              <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-                <CheckCircle2 size={24} />
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-slate-900">Thank You!</h3>
-              <p className="mt-2 text-sm leading-6 text-foreground">
-                Your message has been received. Our team will review your enquiry and get back to you shortly.
-              </p>
-              <div className="mt-4 rounded-xl bg-secondary p-3 text-xs text-foreground">
-                For urgent emergencies or quick appointments, call us directly at{" "}
-                <a href="tel:+918432214377" className="font-bold text-primary underline">
-                  +91 0843 221 4377
-                </a>
-                .
-              </div>
-              <button
-                type="button"
-                onClick={() => setSubmitted(false)}
-                className="mt-5 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-xs font-bold text-white transition-colors hover:bg-[#092f70]"
-              >
-                Send Another Message
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
+            <form onSubmit={handleSubmit} onInvalidCapture={() => toast.error("Please complete the required contact details correctly.", { id: "contact-validation" })} className="grid gap-4 sm:grid-cols-2">
               <label className="block">
                 <span className="sr-only">Your Name</span>
                 <input
@@ -161,7 +135,7 @@ export default function ContactMapForm() {
                 Send Message
               </button>
             </form>
-          )}
+          {showContactNotice && <p role="status" className="mt-4 rounded-xl bg-white p-4 text-sm leading-6 text-primary">Online messages are not available yet. Please call <a href="tel:+918432214377" className="font-semibold underline">+91 8432214377</a> to contact our team. Your details have not been sent.</p>}
         </div>
       </div>
     </section>
