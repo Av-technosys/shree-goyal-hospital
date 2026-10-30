@@ -24,8 +24,8 @@ export default async function Blogs() {
         <ActionLink href="/blogs" outline>View All Articles</ActionLink>
       </div>
 
-      <div data-motion-stagger id="articles" data-lenis-prevent-horizontal className="-mx-4 flex min-w-0 snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain scroll-px-4 px-4 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:py-0 sm:scroll-px-0">
-        {articles.map(article => <article data-motion-hover="card" key={article.title} className="flex min-w-0 break-words flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_15px_#0000000d] basis-[calc(80%-12px)] shrink-0 snap-start sm:basis-auto sm:shrink">
+      <div data-motion-stagger id="articles" data-lenis-prevent-horizontal className="-mx-4 flex min-w-0 snap-x snap-proximity gap-6 overflow-x-auto overscroll-x-contain scroll-px-4 px-4 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 sm:py-0 sm:scroll-px-0">
+        {articles.map(article => <article data-motion-hover="card" key={article.title} className="flex min-w-0 break-words flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_15px_#0000000d] basis-[calc(72%-12px)] shrink-0 snap-start sm:basis-auto sm:shrink">
           <div className="relative">
             <Image src={article.mainBannerImage} alt={article.title} width={398} height={224} sizes="(max-width: 767px) 100vw, 33vw" className="aspect-[398/224] w-full object-cover" />
             <span className="absolute left-3 top-3 rounded-full bg-foreground px-3 py-1 text-[10px] font-bold text-white">

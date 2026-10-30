@@ -66,13 +66,13 @@ export default function ContactCards() {
     <section aria-label="Contact Channels" className="mx-auto max-w-[1240px] px-4 sm:px-5 py-8 sm:py-14 xl:px-0">
       <div data-lenis-prevent-horizontal
         data-motion-stagger
-        className="flex min-w-0 overflow-x-auto overscroll-x-contain scroll-px-4 gap-4 py-4 px-4 -mx-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:scroll-px-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible lg:grid-cols-4"
+        className="flex min-w-0 overflow-x-auto overscroll-x-contain scroll-px-4 gap-4 py-4 px-4 -mx-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-proximity touch-auto sm:mx-0 sm:scroll-px-0 sm:px-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible lg:grid-cols-4"
       >
         {contactCards.map(({ icon: Icon, title, content }) => (
           <article
             key={title}
             data-motion-hover="card"
-            className="flex min-w-0 basis-[calc(80%-8px)] break-words shrink-0 snap-start flex-col justify-between rounded-3xl border border-slate-100 bg-white p-6 shadow-[0_4px_14px_-4px_#0b3d911a] sm:shadow-[0_8px_30px_#0000000d] transition-all duration-300 hover:shadow-md sm:hover:shadow-xl sm:w-auto sm:basis-auto sm:rounded-2xl"
+            className="flex min-w-0 basis-[calc(72%-8px)] break-words shrink-0 snap-start flex-col justify-between rounded-3xl border border-slate-100 bg-white p-6 shadow-[0_4px_14px_-4px_#0b3d911a] sm:shadow-[0_8px_30px_#0000000d] transition-all duration-300 hover:shadow-md sm:hover:shadow-xl sm:w-auto sm:basis-auto sm:rounded-2xl"
           >
             <div>
               <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-white shadow-sm">

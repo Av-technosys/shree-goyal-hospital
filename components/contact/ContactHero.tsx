@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import ActionLink from "@/components/ui/ActionLink";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -31,16 +30,8 @@ export default function ContactHero() {
             Have a question, need help, or want to book an appointment? Get in touch with our team, we&apos;re always happy to assist you.
           </p>
 
-          <div className="mt-5 flex flex-row flex-wrap items-center gap-2.5 sm:mt-8 sm:gap-4">
+          <div className="mt-5 sm:mt-8">
             <ActionLink href="#contact-form">Book Appointment</ActionLink>
-            <a
-              href="tel:+918432214377"
-              data-motion-hover="button"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-primary bg-white px-5 py-2.5 text-xs font-bold text-primary shadow-xs transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-4 min-[380px]:text-sm sm:px-6 sm:py-3"
-            >
-              Call Now
-              <ArrowRight size={15} aria-hidden="true" />
-            </a>
           </div>
         </div>
       </div>
