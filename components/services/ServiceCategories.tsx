@@ -1,14 +1,14 @@
-import { Activity, Ear, Headphones, MessageSquare, Mic, Sparkles, UserRound, Wind } from "lucide-react";
+import { Activity, Ear, Headphones, MessageSquare, Mic, Moon, UserRound, Wind } from "lucide-react";
 
 const categories = [
   { title: "Ear & Vertigo", icon: Ear, href: "#ear-vertigo" },
   { title: "Sinus & Allergy", icon: Wind, href: "#sinus-allergy" },
   { title: "Throat & Voice", icon: Mic, href: "#throat-voice" },
-  { title: "Head & Neck Disorder", icon: UserRound, href: "#throat-voice" },
-  { title: "Hearing Evaluation & Aid", icon: Headphones, href: "#ear-vertigo" },
-  { title: "Voice & Speech Therapy", icon: MessageSquare, href: "#throat-voice" },
-  { title: "Allergy & Sinusitis", icon: Sparkles, href: "#sinus-allergy" },
-  { title: "Tonsil & Adenoid", icon: Activity, href: "#throat-voice" },
+  { title: "Head & Neck Disorder", icon: UserRound, href: "#head-neck" },
+  { title: "Hearing Evaluation & Aid", icon: Headphones, href: "#audiology" },
+  { title: "Voice & Speech Therapy", icon: MessageSquare, href: "#voice-speech-therapy" },
+  { title: "Balance Tests", icon: Activity, href: "#balance-tests" },
+  { title: "Snoring & Sleep Apnea", icon: Moon, href: "#sleep-apnea" },
 ];
 
 export default function ServiceCategories() {

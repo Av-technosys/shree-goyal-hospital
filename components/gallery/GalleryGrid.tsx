@@ -43,7 +43,7 @@ export default function GalleryGrid() {
   }
 
   return <section aria-label="Hospital photo gallery" className="pb-12 pt-12 lg:pt-20">
-    <div className="mx-auto max-w-[1240px] border-0 px-4 sm:px-5 xl:px-0">
+    <div className="mx-auto max-w-[1240px] border-0 px-5 xl:px-0">
       <div data-lenis-prevent-horizontal className="-mx-1 flex gap-2 overflow-x-auto overscroll-x-contain border-0 p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="group" aria-label="Filter gallery by category">
         {categories.map(({ name, icon: Icon }) => <button
           key={name}
@@ -56,7 +56,7 @@ export default function GalleryGrid() {
       </div>
     </div>
 
-    <div className="mx-auto max-w-[1240px] px-4 sm:px-5 pt-8 xl:px-0">
+    <div className="mx-auto max-w-[1240px] px-5 pt-8 xl:px-0">
       <p className="sr-only" role="status">Showing {filtered.length} photos in {category}.</p>
       <div data-motion-reveal id="gallery-photos" className={`grid grid-cols-2 gap-3 sm:gap-5 ${category === "All" ? "lg:grid-cols-6" : "lg:grid-cols-3"}`}>
         <AnimatePresence initial={false} mode="popLayout">
@@ -112,27 +112,16 @@ export default function GalleryGrid() {
             event.preventDefault();
             changePhoto(event.key === "ArrowLeft" ? -1 : 1);
           }}
-          className="fixed left-1/2 top-1/2 z-50 max-h-[calc(100dvh_-_24px)] w-[calc(100%_-_24px)] max-w-[950px] -translate-x-1/2 -translate-y-1/2 overflow-y-auto overscroll-contain rounded-2xl bg-white p-4 sm:p-6 text-foreground shadow-2xl focus:outline-none"
+          className="fixed left-1/2 top-1/2 z-50 max-h-[calc(100dvh_-_32px)] w-[calc(100%_-_32px)] max-w-[1000px] -translate-x-1/2 -translate-y-1/2 overflow-y-auto overscroll-contain rounded-2xl bg-white p-5 text-foreground shadow-2xl focus:outline-none sm:p-7"
         >
-          <Dialog.Title className="mb-3 sm:mb-4 pr-10 text-base sm:text-xl font-bold text-primary">{selectedPhoto?.title}</Dialog.Title>
+          <Dialog.Title className="mb-5 pr-10 text-xl font-bold text-primary">{selectedPhoto?.title}</Dialog.Title>
           <Dialog.Description className="sr-only">Hospital gallery photo. Use the left and right arrow keys to browse. Press Escape to close.</Dialog.Description>
-          <Dialog.Close aria-label="Close photo viewer" className="absolute right-3 top-3 sm:top-5 sm:right-5 flex size-9 sm:size-10 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-secondary hover:text-primary"><X size={20} className="sm:size-[22px]" /></Dialog.Close>
-          {selectedPhoto && (
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] max-h-[68dvh] overflow-hidden rounded-xl bg-slate-900/5">
-              <Image
-                src={`/Gallery/${selectedPhoto.file}`}
-                alt={selectedPhoto.title}
-                fill
-                sizes="(max-width: 767px) 95vw, 950px"
-                className="object-contain"
-                priority
-              />
-            </div>
-          )}
-          {filtered.length > 1 && <div className="mt-4 sm:mt-5 flex items-center justify-between">
-            <button type="button" onClick={() => changePhoto(-1)} aria-label="Previous photo" className="flex size-10 sm:size-11 items-center justify-center rounded-full border border-blue-100 text-primary transition-colors hover:bg-secondary"><ChevronLeft size={20} /></button>
-            <p className="text-xs sm:text-sm text-[#526176]" aria-live="polite">{selectedIndex + 1} / {filtered.length}</p>
-            <button type="button" onClick={() => changePhoto(1)} aria-label="Next photo" className="flex size-10 sm:size-11 items-center justify-center rounded-full border border-blue-100 text-primary transition-colors hover:bg-secondary"><ChevronRight size={20} /></button>
+          <Dialog.Close aria-label="Close photo viewer" className="absolute right-3 top-3 flex size-10 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-secondary hover:text-primary"><X size={22} /></Dialog.Close>
+          {selectedPhoto && <Image src={`/Gallery/${selectedPhoto.file}`} alt={selectedPhoto.title} width={selectedPhoto.width} height={selectedPhoto.height} sizes="(max-width: 767px) 90vw, 850px" className="mx-auto max-h-[65dvh] w-auto max-w-full rounded-xl object-contain" />}
+          {filtered.length > 1 && <div className="mt-5 flex items-center justify-between">
+            <button type="button" onClick={() => changePhoto(-1)} aria-label="Previous photo" className="flex size-11 items-center justify-center rounded-full border border-blue-100 text-primary transition-colors hover:bg-secondary"><ChevronLeft size={20} /></button>
+            <p className="text-sm text-[#526176]" aria-live="polite">{selectedIndex + 1} / {filtered.length}</p>
+            <button type="button" onClick={() => changePhoto(1)} aria-label="Next photo" className="flex size-11 items-center justify-center rounded-full border border-blue-100 text-primary transition-colors hover:bg-secondary"><ChevronRight size={20} /></button>
           </div>}
         </Dialog.Content>
       </Dialog.Portal>

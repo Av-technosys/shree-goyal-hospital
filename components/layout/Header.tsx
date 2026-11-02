@@ -9,8 +9,8 @@ import AppointmentDialog from "@/components/ui/AppointmentDialog";
 import Brand from "./Brand";
 
 const serviceDropdown = [
-  { label: "Maternity Care", href: "/services/maternity" },
-  { label: "ENT Care", href: "/services/ent" },
+  { label: "Maternity Care", href: "/services/maternity" }, 
+  { label: "ENT Care", href: "/services/ent" }, 
 ];
 
 export default function Header() {

@@ -15,14 +15,14 @@ const facilitiesList = [
 
 export default function KeyFacilities() {
   return (
-    <section aria-labelledby="key-facilities-heading" className="mx-auto max-w-[1240px] px-4 sm:px-5 py-12 sm:py-16 xl:px-0">
+    <section aria-labelledby="key-facilities-heading" className="mx-auto max-w-[1240px] px-5 py-12 sm:py-16 xl:px-0">
       <SectionLabel>Special Facilities</SectionLabel>
 
       <div data-motion-reveal className="mb-10 flex flex-wrap items-end justify-between gap-5">
         <div>
           <h2
             id="key-facilities-heading"
-            className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
+            className="text-3xl font-extrabold leading-[1.15] tracking-[-1px] text-primary sm:text-4xl"
           >
             Key Facilities at<br />
             <span className="text-accent">Shree Goyal Hospital</span>
@@ -33,12 +33,12 @@ export default function KeyFacilities() {
         </p>
       </div>
 
-      <div data-motion-stagger data-lenis-prevent-horizontal className="-mx-4 flex min-w-0 snap-x snap-proximity gap-5 overflow-x-auto overscroll-x-contain scroll-px-4 px-4 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:py-0 sm:scroll-px-0 lg:grid-cols-4">
+      <div data-motion-stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {facilitiesList.map((facility, index) => (
           <article
             key={index}
             data-motion-hover="card"
-            className="group flex min-w-0 break-words flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_20px_#00000008] transition-shadow hover:shadow-md basis-[calc(65%-10px)] shrink-0 snap-start sm:basis-auto sm:shrink"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_4px_20px_#00000008] transition-shadow hover:shadow-md"
           >
             <div className="relative h-[170px] w-full overflow-hidden">
               <Image

@@ -2,6 +2,7 @@ import {
   Activity,
   Baby,
   CalendarHeart,
+  Heart,
   HeartPulse,
   ShieldAlert,
   Sparkles,
@@ -10,20 +11,21 @@ import {
 } from "lucide-react";
 
 const categories = [
-  { title: "Antenatal Care & Checkups", icon: HeartPulse, href: "#antenatal-care" },
-  { title: "Normal Delivery", icon: Baby, href: "#high-risk-delivery" },
-  { title: "High-Risk Pregnancy Care", icon: ShieldAlert, href: "#high-risk-delivery" },
-  { title: "Ultrasound & Foetal Monitoring", icon: Activity, href: "#foetal-monitoring" },
-  { title: "Gynaecology Care for Women", icon: Stethoscope, href: "#antenatal-care" },
-  { title: "Infertility Evaluation & Treatment", icon: Sparkles, href: "#high-risk-delivery" },
-  { title: "Menstrual & Hormonal Disorders", icon: CalendarHeart, href: "#antenatal-care" },
-  { title: "Adolescent & Women’s Health", icon: UserCheck, href: "#antenatal-care" },
+  { title: "Antenatal Checkup", icon: HeartPulse, href: "#antenatal-checkup" },
+  { title: "Foetal Monitoring", icon: Activity, href: "#foetal-monitoring" },
+  { title: "Infertility & Sterility", icon: Sparkles, href: "#infertility-sterility" },
+  { title: "High Risk Pregnancy", icon: ShieldAlert, href: "#high-risk-pregnancy" },
+  { title: "Artificial Insemination", icon: Stethoscope, href: "#artificial-insemination" },
+  { title: "In Vitro Fertilization", icon: Baby, href: "#ivf" },
+  { title: "Embryo Freezing", icon: CalendarHeart, href: "#embryo-freezing" },
+  { title: "White Discharge (p)", icon: UserCheck, href: "#white-discharge" },
+  { title: "Normal & C-Section", icon: Heart, href: "#normal-cesarean-delivery" },
 ];
 
 export default function MaternityCategories() {
   return (
     <section aria-label="Maternity care specialties" className="relative z-10 mx-auto -mt-12 sm:-mt-14 lg:-mt-16 max-w-[1240px] px-4 pb-2 sm:px-5 md:px-5 md:pb-12 xl:px-0">
-      <div data-lenis-prevent-horizontal data-motion-stagger className="-mx-4 flex min-w-0 scroll-px-4 snap-x snap-proximity gap-3 overflow-x-auto overscroll-x-contain px-4 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-4 md:px-0 md:scroll-px-0 md:overflow-visible lg:grid-cols-8">
+      <div data-lenis-prevent-horizontal data-motion-stagger className="-mx-4 flex min-w-0 scroll-px-4 snap-x snap-proximity gap-3 overflow-x-auto overscroll-x-contain px-4 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:px-0 md:scroll-px-0 md:overflow-visible lg:grid-cols-9">
         {categories.map(({ title, icon: Icon, href }) => (
           <a
             key={title}
