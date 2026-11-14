@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { getCountries, getCountryCallingCode, parsePhoneNumberFromString, type CountryCode } from "libphonenumber-js/max";
+import { getCountryCallingCode, parsePhoneNumberFromString, type CountryCode } from "libphonenumber-js/max";
+import phoneCountries from "@/lib/phone-countries.json";
 
-const countryNames = new Intl.DisplayNames(["en"], { type: "region" });
-const countries = getCountries().map(code => ({ code, name: countryNames.of(code) ?? code })).sort((a, b) => a.name.localeCompare(b.name, "en"));
+const countries = phoneCountries as { code: CountryCode; name: string }[];
 
 export default function AppointmentPhoneInput({ id, error, spacious }: { id: string; error?: string; spacious: boolean }) {
   const [country, setCountry] = useState<CountryCode>("IN");
