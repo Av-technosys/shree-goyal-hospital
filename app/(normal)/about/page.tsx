@@ -11,8 +11,8 @@ import AppointmentSection from "@/components/ui/AppointmentSection";
 import PageAnimations from "@/components/ui/PageAnimations";
 
 export const metadata: Metadata = {
-  title: "About Us | Shree Goyal Hospital",
-  description: "Learn about Shree Goyal Hospital in Ajmer, our maternity and ENT specialists, our commitment to patient-first care, and our modern facilities.",
+  title: "About Shree Goyal Hospital | Maternity & ENT Services in Ajmer",
+  description: "Shree Goyal Hospital provides compassionate & high-quality healthcare in the fields of Maternity & ENT, with modern facilities for every patient. Book an appointment",
 };
 
 export default function AboutPage() {

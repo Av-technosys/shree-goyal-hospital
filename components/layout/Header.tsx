@@ -98,7 +98,7 @@ function HeaderContent({ pathname }: { pathname: string }) {
             </a>
             <a href="tel:+918432214377" className="flex items-center gap-2">
               <Phone size={18} fill="currentColor" />
-              <span className="hidden min-[420px]:inline">+91 08432214377</span>
+              <span className="hidden min-[420px]:inline">+91 84322 14377</span>
               <span className="sr-only min-[420px]:hidden">Call hospital</span>
             </a>
           </div>

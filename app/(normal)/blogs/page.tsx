@@ -8,8 +8,8 @@ import Newsletter from "@/components/blogs/Newsletter";
 import PageAnimations from "@/components/ui/PageAnimations";
 
 export const metadata: Metadata = {
-  title: "Health Insights & Wellness | Shree Goyal Hospital",
-  description: "Browse maternity, ENT, women's health, child health, and wellness articles from Shree Goyal Hospital in Ajmer.",
+  title: "Expert Health Tips & Wellness Blogs | Shree Goyal Hospital",
+  description: "Read expert articles on pregnancy, maternity, ENT, women's health, and child care. Get medical guidance from the doctors at Shree Goyal Hospital, Ajmer.",
 };
 
 export default function BlogsPage() {

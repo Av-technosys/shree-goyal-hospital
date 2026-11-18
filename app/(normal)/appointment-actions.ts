@@ -27,6 +27,6 @@ export async function submitAppointment(formData: FormData): Promise<Appointment
   } catch (error) {
     const cause = error instanceof Error && error.cause ? error.cause : error;
     console.error("Appointment save failed:", typeof cause === "object" && cause && "code" in cause ? cause.code : "UNKNOWN");
-    return { success: false, message: "We couldn’t save your request. Please try again or call +91 8432214377. Your entered details are still here." };
+    return { success: false, message: "We couldn’t save your request. Please try again or call +91 84322 14377. Your entered details are still here." };
   }
 }

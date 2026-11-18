@@ -25,6 +25,6 @@ export async function submitContactMessage(data: FormData): Promise<ContactResul
   } catch (error) {
     const cause = error instanceof Error && error.cause ? error.cause : error;
     console.error("Contact message save failed:", typeof cause === "object" && cause && "code" in cause ? cause.code : "UNKNOWN");
-    return { success: false, message: "We couldn’t send your message. Your details are still here. Please try again or call +91 8432214377." };
+    return { success: false, message: "We couldn’t send your message. Your details are still here. Please try again or call +91 84322 14377." };
   }
 }

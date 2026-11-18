@@ -90,13 +90,13 @@ export default function Footer() {
               {[
                 {
                   icon: Phone,
-                  text: "+91 08432214377, 8432214377",
+                  text: "+91 84322 14377",
                   href: "tel:+918432214377",
                 },
                 {
                   icon: Mail,
-                  text: "care@shreegoyalhospital.com",
-                  href: "mailto:care@shreegoyalhospital.com",
+                  text: "ritumanish01@gmail.com",
+                  href: "mailto:ritumanish01@gmail.com",
                 },
                 {
                   icon: MapPin,

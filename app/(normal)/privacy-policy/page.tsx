@@ -17,9 +17,9 @@ import LegalSidebar, { type TocItem } from "@/components/legal/LegalSidebar";
 import PageAnimations from "@/components/ui/PageAnimations";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Shree Goyal Hospital, Ajmer",
+  title: "Privacy Policy | Shree Goyal Hospital Maternity & ENT Care",
   description:
-    "Learn how Shree Goyal Hospital in Ajmer protects patient privacy, records confidentiality, and personal data in compliance with healthcare data protection standards.",
+    "Read the Privacy Policy of Shree Goyal Hospital, Ajmer. Learn how we collect, use, and protect your personal information when you use our website and services.",
 };
 
 const tocItems: TocItem[] = [
@@ -312,16 +312,16 @@ export default function PrivacyPolicyPage() {
                       href="tel:+918432214377"
                       className="font-semibold text-primary hover:underline"
                     >
-                      +91 8432214377 / 08432214377
+                      +91 84322 14377
                     </a>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border border-slate-100 bg-[#fdfdff] p-3.5 sm:col-span-2">
                     <Mail size={16} className="text-primary shrink-0" />
                     <a
-                      href="mailto:care@shreegoyalhospital.com"
+                      href="mailto:ritumanish01@gmail.com"
                       className="font-semibold text-primary hover:underline"
                     >
-                      care@shreegoyalhospital.com
+                      ritumanish01@gmail.com
                     </a>
                   </div>
                 </div>

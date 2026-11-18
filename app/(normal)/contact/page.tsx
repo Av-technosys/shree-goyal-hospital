@@ -6,9 +6,9 @@ import ContactMapForm from "@/components/contact/ContactMapForm";
 import NeedAssistance from "@/components/contact/NeedAssistance";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Shree Goyal Hospital, Ajmer",
+  title: "Contact Shree Goyal Maternity & ENT Care Hospital in Ajmer",
   description:
-    "Get in touch with Shree Goyal Hospital in Ajmer for maternity, ENT, and pediatric healthcare. Call +91 08432214377 or visit Balupura Road, Adarsh Nagar.",
+    "Contact Shree Goyal Hospital in Ajmer for maternity, ENT, and paediatric care. Book an appointment or call us for general enquiries. Emergency 24x7.",
 };
 
 export default function ContactPage() {
