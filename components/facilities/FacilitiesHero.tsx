@@ -37,10 +37,10 @@ export default function FacilitiesHero() {
 
           {/* Mobile Title & Text (PDF Match) */}
           <div className="block md:hidden">
-            <h1 className="mt-2 text-[32px] font-extrabold leading-[1.15] tracking-[-1.5px] text-primary">
+            <p className="mt-2 text-[32px] font-extrabold leading-[1.15] tracking-[-1.5px] text-primary">
               We&apos;re Here<br />
               <span className="text-accent">For You</span>
-            </h1>
+            </p>
             <p className="mt-3.5 max-w-[500px] text-xs leading-relaxed text-foreground min-[380px]:text-sm">
               Have a question, need help, or want to book an appointment? Get in touch with our team, we&apos;re always happy to assist you.
             </p>

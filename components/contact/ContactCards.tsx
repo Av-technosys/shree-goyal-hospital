@@ -34,6 +34,9 @@ const contactCards = [
     content: (
       <div className="mt-2 space-y-1 text-xs leading-5 text-foreground">
         <p className="text-sm font-semibold leading-5 text-slate-900">
+          Shree Goyal Hospital
+        </p>
+        <p className="text-xs leading-5 text-foreground">
           73, Balupura Road, Adarsh Nagar, Ajmer - 305001
         </p>
         <p className="text-slate-500">Opposite State Bank Of India.</p>

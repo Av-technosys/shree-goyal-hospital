@@ -29,9 +29,6 @@ export default function ServicesHero() {
           <p className="mt-3 text-[clamp(12px,3.55vw,14px)] leading-relaxed text-foreground md:hidden">
             This is a specialty dealing with ear, nose and throat diseases, which includes most of the head and neck ailments. Our hospital is dedicated to expanding the frontiers of diagnosis.
           </p>
-          <p className="hidden md:block mt-4 text-[clamp(12px,3.55vw,14px)] sm:text-base leading-relaxed text-foreground">
-            This is a specialty dealing with ear, nose and throat diseases, which includes most of the head and neck ailments.
-          </p>
           <p className="hidden md:block mt-3 text-[clamp(12px,3.55vw,14px)] sm:text-base leading-relaxed text-foreground">
             Our hospital is dedicated to expanding the frontiers of diagnosis, treatment and research of disorders of the ear, nose and sinuses, throat and the anterior skull base.
           </p>
