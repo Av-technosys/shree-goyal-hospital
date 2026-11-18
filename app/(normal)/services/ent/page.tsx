@@ -12,9 +12,9 @@ import BalanceTestsClinic from "@/components/services/BalanceTestsClinic";
 import SleepApneaClinic from "@/components/services/SleepApneaClinic";
 
 export const metadata: Metadata = {
-  title: "ENT Services & Clinics | Shree Goyal Hospital, Ajmer",
+  title: "Best ENT Services & Clinic in Ajmer | Shree Goyal Hospital",
   description:
-    "Expert Ear, Nose, Throat, and Head & Neck care in Ajmer. Specialized clinics for Ear & Vertigo, Sinus & Allergy, Throat & Voice, Oncology, Audiology, Speech Therapy, and Sleep Medicine at Shree Goyal Hospital.",
+    "Trusted ENT hospital in Ajmer: ear and vertigo, sinus and allergy, throat and voice, head and neck cancer, audiology, speech therapy, and sleep apnea treatment.",
 };
 
 export default function ENTServicesPage() {

@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Shree Goyal Hospital | Maternity & ENT Care in Ajmer",
   icons: { icon: "/Common/Logo.png" },
-  description: "Compassionate maternity, women's health, and ENT care at Shree Goyal Hospital, Ajmer. Meet our specialists and arrange your consultation.",
+  description: "Searching for maternity and ENT care in Ajmer? Consult experienced gynecologists and ENT doctors with advanced medical support. Book your appointment today.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -4,8 +4,8 @@ import GalleryGrid from "@/components/gallery/GalleryGrid";
 import PageAnimations from "@/components/ui/PageAnimations";
 
 export const metadata: Metadata = {
-  title: "Gallery | Shree Goyal Hospital",
-  description: "Explore Shree Goyal Hospital in Ajmer through photos of our facilities, operation theatre, maternity and ENT care, patient rooms, and medical team.",
+  title: "Shree Goyal Hospital Gallery | Modern Facilities & Events",
+  description: "Shree Goyal Hospital Gallery showcases our modern facilities, events, and patient care moments. Explore photos of a clean, modern & caring environment in Ajmer.",
 };
 
 export default function GalleryPage() {

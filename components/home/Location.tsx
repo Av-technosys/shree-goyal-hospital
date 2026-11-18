@@ -1,5 +1,6 @@
 import { ArrowRight, Clock3, Map, MapPin, Phone } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { workingHours } from "@/lib/working-hours";
 
 const mapUrl = "https://www.google.com/maps/search/?api=1&query=Shree+Goyal+Hospital+Balupura+Road+Ajmer";
 
@@ -27,9 +28,9 @@ export default function Location() {
                 <h4 className="mb-2 border-b border-blue-100 pb-2 text-sm font-extrabold text-slate-900">Working Hours</h4>
 
                 <div className="grid gap-3 min-[420px]:grid-cols-3">
-                  {[["Mon – Wed", "8:00 AM – 7:00 PM"], ["Thu – Sat", "8:00 AM – 7:00 PM"], ["Sunday", "8:00 AM – 2:00 PM"]].map(([day, hours]) => <p key={day} className="text-[10px] leading-5">
+                  {workingHours.map(({ days, hours }) => <p key={days} className="text-[10px] leading-5">
                     <span className="block font-semibold">
-                      {day}
+                      {days}
                     </span>
                     <span className="font-extrabold text-slate-900">
                       {hours}
@@ -48,7 +49,7 @@ export default function Location() {
                 <h4 className="mb-1 text-sm font-extrabold text-slate-900">Contact Details</h4>
 
                 <div className="flex flex-wrap gap-3 text-[11px] font-semibold text-slate-900">
-                  {[0, 1].map(index => <a key={index} href="tel:+918432214377" className="flex items-center gap-1"><Phone size={12} className="text-primary" />+91 08432214377</a>)}
+                  <a href="tel:+918432214377" className="flex items-center gap-1"><Phone size={12} className="text-primary" />+91 84322 14377</a>
                 </div>
               </div>
 

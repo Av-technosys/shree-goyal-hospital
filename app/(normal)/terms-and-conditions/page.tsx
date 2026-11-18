@@ -15,9 +15,9 @@ import LegalSidebar, { type TocItem } from "@/components/legal/LegalSidebar";
 import PageAnimations from "@/components/ui/PageAnimations";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | Shree Goyal Hospital, Ajmer",
+  title: "Terms & Conditions | Shree Goyal Hospital Maternity & ENT Care",
   description:
-    "Review the terms and conditions for using Shree Goyal Hospital's website, appointment scheduling, and patient guidelines in Ajmer, Rajasthan.",
+    "Read the Terms & Conditions for using Shree Goyal Hospital, Ajmer, to understand usage policies, responsibilities, and guidelines for services & website access.",
 };
 
 const tocItems: TocItem[] = [
@@ -121,7 +121,7 @@ export default function TermsAndConditionsPage() {
                       href="tel:+918432214377"
                       className="font-bold text-primary underline"
                     >
-                      +91 8432214377
+                      +91 84322 14377
                     </a>
                     .
                   </p>
@@ -307,16 +307,16 @@ export default function TermsAndConditionsPage() {
                       href="tel:+918432214377"
                       className="font-semibold text-primary hover:underline"
                     >
-                      +91 8432214377 / 08432214377
+                      +91 84322 14377
                     </a>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border border-slate-100 bg-[#fdfdff] p-3.5 sm:col-span-2">
                     <Mail size={16} className="text-primary shrink-0" />
                     <a
-                      href="mailto:care@shreegoyalhospital.com"
+                      href="mailto:ritumanish01@gmail.com"
                       className="font-semibold text-primary hover:underline"
                     >
-                      care@shreegoyalhospital.com
+                      ritumanish01@gmail.com
                     </a>
                   </div>
                 </div>

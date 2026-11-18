@@ -10,9 +10,9 @@ import ENTCareSection from "@/components/facilities/ENTCareSection";
 import ComfortFacilities from "@/components/facilities/ComfortFacilities";
 
 export const metadata: Metadata = {
-  title: "Modern Facilities & Infrastructure | Shree Goyal Hospital, Ajmer",
+  title: "Modern Hospital Facilities in Ajmer | Shree Goyal Hospital",
   description:
-    "Explore our modern facilities at Shree Goyal Hospital, Ajmer. Advanced Operation Theatres, Maternity & Labour suites, ENT diagnostic labs, and 24x7 emergency care.",
+    "Shree Goyal Hospital offers advanced hospital facilities in Ajmer including ICU, NICU, general ward, maternity ward, ENT diagnostics, and 24x7 emergency care.",
 };
 
 export default function FacilitiesPage() {

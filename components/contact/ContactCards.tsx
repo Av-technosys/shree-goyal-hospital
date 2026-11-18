@@ -1,4 +1,5 @@
 import { Clock3, Mail, MapPin, Phone } from "lucide-react";
+import { workingHours } from "@/lib/working-hours";
 
 const contactCards = [
   {
@@ -7,10 +8,7 @@ const contactCards = [
     content: (
       <div className="mt-2 space-y-1 text-sm font-semibold text-foreground">
         <a href="tel:+918432214377" className="block transition-colors hover:text-primary">
-          +91 0843 221 4377
-        </a>
-        <a href="tel:+918432214377" className="block transition-colors hover:text-primary">
-          +91 0843 221 4377
+          +91 84322 14377
         </a>
       </div>
     ),
@@ -21,10 +19,10 @@ const contactCards = [
     content: (
       <div className="mt-2 space-y-1">
         <a
-          href="mailto:goyalhospitalajmer@gmail.com"
+          href="mailto:ritumanish01@gmail.com"
           className="block break-all text-sm font-semibold text-foreground transition-colors hover:text-primary hover:underline"
         >
-          goyalhospitalajmer@gmail.com
+          ritumanish01@gmail.com
         </a>
         <p className="text-xs leading-5 text-slate-500">We usually respond within 24 hours.</p>
       </div>
@@ -47,12 +45,11 @@ const contactCards = [
     title: "Timings",
     content: (
       <div className="mt-2 space-y-1 text-xs leading-5">
-        <p className="font-semibold text-foreground">
-          <span className="font-normal text-slate-500">Mon - Sat:</span> 9:00 AM - 7:00 PM
-        </p>
-        <p className="font-semibold text-foreground">
-          <span className="font-normal text-slate-500">Sunday:</span> 9:00 AM - 1:00 PM
-        </p>
+        {workingHours.map(({ days, hours }) => (
+          <p key={days} className="font-semibold text-foreground">
+            <span className="font-normal text-slate-500">{days}:</span> {hours}
+          </p>
+        ))}
         <p className="font-bold text-primary">
           <span className="font-semibold text-slate-700">Emergency:</span> 24x7
         </p>

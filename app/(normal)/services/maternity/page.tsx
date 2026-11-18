@@ -13,9 +13,9 @@ import WhiteDischargeClinic from "@/components/maternity/WhiteDischargeClinic";
 import NormalCesareanDeliveryClinic from "@/components/maternity/NormalCesareanDeliveryClinic";
 
 export const metadata: Metadata = {
-  title: "Maternity & Women's Healthcare Services | Shree Goyal Hospital, Ajmer",
+  title: "Maternity & Women's Healthcare in Ajmer | Shree Goyal Hospital",
   description:
-    "Comprehensive maternity care in Ajmer. Specialized services for Antenatal Care, Foetal Monitoring, Infertility, High-Risk Pregnancy, IUI, IVF, Embryo Freezing, White Discharge, and Normal & Cesarean Delivery at Shree Goyal Hospital.",
+    "Maternity hospital in Ajmer: antenatal checkups, foetal monitoring, high-risk pregnancy, IUI, IVF, infertility treatment, and normal or C-section delivery.",
 };
 
 export default function MaternityServicesPage() {
