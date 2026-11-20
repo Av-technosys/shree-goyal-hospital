@@ -34,7 +34,7 @@ export default function ServicesHero() {
           </p>
 
           <div className="mt-5 flex flex-wrap gap-4 md:mt-8">
-            <ActionLink href="#ear-vertigo">Book Appointment</ActionLink>
+            <ActionLink href="/#appointment">Book Appointment</ActionLink>
           </div>
         </div>
       </div>

@@ -89,7 +89,7 @@ export default function ENTClinicSection({
               {headingDesc}
             </p>
             <div className="mt-5 md:mt-6">
-              <ActionLink href="/contact">Book Appointment</ActionLink>
+              <ActionLink href="/#appointment">Book Appointment</ActionLink>
             </div>
           </div>
 

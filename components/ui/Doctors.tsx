@@ -16,11 +16,11 @@ export default function Doctors({ compactMobile = false }: { compactMobile?: boo
 
       <div data-motion-reveal className="mb-10 flex flex-wrap items-end justify-between gap-5">
         <h2 className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">Meet Our <span className="text-accent">Specialists</span></h2>
-        <a href="#doctors" className={`${compactMobile ? "hidden sm:flex" : "flex"} items-center gap-2 text-sm font-bold text-[#006b9d]`}>View All Doctors <ArrowRight size={16} /></a>
+        <a href="#doctors" className="flex items-center gap-2 text-sm font-bold text-[#006b9d]">View All Doctors <ArrowRight size={16} /></a>
       </div>
 
       <div data-motion-stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {doctors.map(doctor => <article data-motion-hover="card" key={doctor.name} className={`relative isolate min-w-0 break-words overflow-hidden rounded-2xl bg-white p-6 shadow-[0_4px_22px_#00000026] ${compactMobile ? "mx-auto w-[calc(100%_-_48px)] max-w-[340px] sm:w-full sm:max-w-none" : ""}`}>
+        {doctors.map(doctor => <article data-motion-hover="card" key={doctor.name} className="relative isolate min-w-0 break-words overflow-hidden rounded-2xl bg-white p-6 shadow-[0_4px_22px_#00000026]">
           <Image src="/Home/doctorcardBG.png" fill alt="" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw" className="-z-10 object-cover" />
           <div className="mb-6 flex h-[163px] items-center justify-center">
             {doctor.image ? <span className="relative isolate block h-[163px] w-[153px]">

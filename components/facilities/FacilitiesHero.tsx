@@ -67,7 +67,7 @@ export default function FacilitiesHero() {
               At Shree Goyal Hospital, we combine advanced technology with a patient-friendly environment to provide safe, effective and comfortable care for you and your family.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <ActionLink href="/contact">Book Appointment</ActionLink>
+              <ActionLink href="#appointment">Book Appointment</ActionLink>
             </div>
           </div>
         </div>

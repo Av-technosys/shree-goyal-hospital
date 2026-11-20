@@ -29,13 +29,13 @@ export default function ENTCareSection() {
     <section aria-labelledby="ent-care-heading" className="bg-[#f8fbff] py-10 sm:py-14 lg:py-20 overflow-hidden">
       <div className="mx-auto grid max-w-[1240px] items-center gap-6 lg:grid-cols-2 lg:gap-14 px-5 xl:px-0 min-w-0">
         {/* Image: On top in mobile (order-1), right on desktop (lg:order-2) */}
-        <div data-motion-reveal className="relative mx-auto w-[88%] max-w-[310px] min-[390px]:max-w-[330px] sm:w-full sm:max-w-[420px] lg:max-w-[560px] min-w-0 order-1 lg:order-2">
-          <div className="relative h-[165px] min-[390px]:h-[185px] sm:h-[220px] lg:h-[340px] xl:h-[370px] w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-[0_8px_30px_#0000000d]">
+        <div data-motion-reveal className="relative mx-auto w-full sm:max-w-[420px] lg:max-w-[560px] min-w-0 order-1 lg:order-2">
+          <div className="relative h-[200px] min-[390px]:h-[220px] sm:h-[220px] lg:h-[340px] xl:h-[370px] w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-[0_8px_30px_#0000000d]">
             <Image
               src="/facilities/maternitycare2.png"
               alt="Expert ENT Specialist examining patient at Shree Goyal Hospital"
               fill
-              sizes="(max-width: 639px) 330px, (max-width: 1023px) 420px, 560px"
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 420px, 560px"
               className="object-cover"
             />
           </div>
@@ -58,7 +58,7 @@ export default function ENTCareSection() {
             From accurate diagnosis to advanced treatment, we provide personalized care for ear, nose, throat and hearing conditions.
           </p>
 
-          <div className="mt-6 sm:mt-8 flex overflow-x-auto gap-3.5 pb-2 px-5 -mx-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:px-0 sm:grid sm:grid-cols-4 sm:overflow-visible">
+          <div className="mt-6 sm:mt-8 flex overflow-x-auto gap-3.5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:grid sm:grid-cols-4 sm:overflow-visible">
             {entServices.map(({ title, icon: Icon }) => (
               <div
                 key={title}
