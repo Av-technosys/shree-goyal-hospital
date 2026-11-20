@@ -26,12 +26,12 @@ export default function MaternityHero() {
             Compassionate Care<br />
             <span className="text-accent">for Every New Beginning</span>
           </h1>
-          <p className="mt-4 text-[clamp(12px,3.55vw,14px)] sm:text-base leading-relaxed text-foreground">
+          <p className="mt-3 text-[clamp(12px,3.55vw,14px)] sm:text-base leading-relaxed text-foreground">
             We provide comprehensive maternity care with experienced doctors, modern facilities, personalised guidance, and compassionate support to ensure the health, comfort, and wellbeing of every mother and baby.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-4 md:mt-8">
-            <ActionLink href="#antenatal-care">Book Appointment</ActionLink>
+            <ActionLink href="/#appointment">Book Appointment</ActionLink>
           </div>
         </div>
       </div>

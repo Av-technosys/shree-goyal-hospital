@@ -20,7 +20,7 @@ export default function AboutPage() {
     <AboutHero />
     <CareHighlights servicesHref="/services" />
     <Commitment />
-    <Doctors compactMobile />
+    <Doctors />
     <OurStory />
     <div className="flex flex-col">
       <div className="order-2 md:order-1"><MissionVision /></div>

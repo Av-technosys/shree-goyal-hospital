@@ -14,7 +14,7 @@ const categories = [
 export default function ServiceCategories() {
   return (
     <section aria-label="Service specialties" className="relative z-10 mx-auto -mt-12 sm:-mt-14 lg:-mt-16 max-w-[1240px] px-4 pb-2 sm:px-5 md:px-5 md:pb-12 xl:px-0">
-      <div data-lenis-prevent-horizontal data-motion-stagger className="-mx-4 flex min-w-0 scroll-px-4 snap-x snap-proximity gap-3 overflow-x-auto overscroll-x-contain px-4 py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-4 md:px-0 md:scroll-px-0 md:overflow-visible lg:grid-cols-8">
+      <div data-lenis-prevent-horizontal data-motion-stagger className="flex min-w-0 snap-x snap-proximity gap-3 overflow-x-auto overscroll-x-contain py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-4 md:overflow-visible lg:grid-cols-8">
         {categories.map(({ title, icon: Icon, href }) => (
           <a
             key={title}

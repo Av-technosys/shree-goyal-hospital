@@ -12,7 +12,7 @@ export default function Commitment() {
         <ActionLink href="/services" outline className="mt-6 border-transparent bg-secondary">Book Services</ActionLink>
       </div>
 
-      <figure data-motion-reveal className="mx-auto w-[90%] min-w-0 break-words rounded-2xl bg-white p-5 sm:w-full sm:p-6">
+      <figure data-motion-reveal className="mx-auto w-full min-w-0 break-words rounded-2xl bg-white p-5 sm:p-6">
         <Quote size={28} aria-hidden="true" className="mb-3 rotate-180 fill-accent text-accent" />
         <blockquote className="min-h-28 text-sm sm:text-base font-semibold italic leading-6 text-foreground">We believe in treating every patient like family and offering care with honesty, empathy and excellence.</blockquote>
         <figcaption className="mt-6 flex items-center gap-3 border-t border-blue-100 pt-4">

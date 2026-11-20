@@ -13,7 +13,7 @@ export default function CareHighlights({ servicesHref = "#services" }: { service
       data-motion-stagger
       className="relative z-10 mx-auto -mt-12 sm:-mt-16 lg:-mt-20 max-w-[1240px] px-5 pb-6 sm:pb-10 xl:px-0"
     >
-      <div className="flex overflow-x-auto gap-4 pb-4 pt-1 px-5 -mx-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:gap-5">
+      <div className="flex overflow-x-auto gap-4 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:gap-5">
         {items.map(item => (
           <a
             data-motion-hover="card"

@@ -40,7 +40,7 @@ export default function MajorOTEquipment() {
 
       <div
         data-motion-stagger
-        className="mt-8 flex overflow-x-auto gap-4 pb-4 pt-1 px-5 -mx-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
+        className="mt-8 flex overflow-x-auto gap-4 pb-4 pt-1 px-1 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory touch-auto sm:mx-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible"
       >
         {equipmentList.map(item => (
           <article

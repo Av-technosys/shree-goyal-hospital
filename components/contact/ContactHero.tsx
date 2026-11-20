@@ -43,7 +43,7 @@ export default function ContactHero() {
           </p>
 
           <div className="mt-5 flex flex-row flex-wrap items-center gap-2.5 sm:mt-8 sm:gap-4">
-            <ActionLink href="#contact-form">Book Appointment</ActionLink>
+            <ActionLink href="/#appointment">Book Appointment</ActionLink>
             <a
               href="tel:+918432214377"
               data-motion-hover="button"
