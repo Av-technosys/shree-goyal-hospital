@@ -6,9 +6,12 @@ import { animate, motion, useInView, useMotionValue, useReducedMotion, type Anim
 import { useCallback, useEffect, useRef } from "react";
 
 const testimonials = [
-  { quote: "The consultant explained everything clearly and never made me feel rushed. My family knew exactly what was happening at every stage.", name: "A. Khan", department: "Cardiology" },
-  { quote: "The maternity team looked after me through a long labour with real kindness. I would not go anywhere else.", name: "S. Bibi", department: "Maternity" },
-  { quote: "Surgery went smoothly and the physiotherapy afterwards got me walking sooner than I expected.", name: "M. Ali", department: "Orthopaedics" },
+  { quote: "I had severe chronic sinusitis and breathing difficulties for years. The ENT specialist diagnosed the root cause accurately, and after treatment I can finally breathe easily without sinus headaches.", name: "R. Sharma", department: "ENT" },
+  { quote: "The maternity team looked after me through a long labour with real kindness. From regular checkups to post-delivery care, I felt completely safe. I would not go anywhere else.", name: "S. Bibi", department: "Maternity" },
+  { quote: "Surgery went smoothly and the physiotherapy afterwards got me walking sooner than I expected. Truly grateful to the orthopaedic team.", name: "M. Ali", department: "Orthopaedics" },
+  { quote: "Visited for my recurring ear infection and hearing discomfort. The doctor explained the procedure with utmost clarity and the recovery was very quick. Exceptional care and modern equipment!", name: "V. Gupta", department: "ENT" },
+  { quote: "Had a wonderful experience during the birth of our baby girl. The nursing staff and gynaecologists were incredibly patient, reassuring, and attentive round the clock.", name: "P. Rathore", department: "Maternity" },
+  { quote: "Treated here for a fracture and severe joint pain. The doctor's expertise and the structured physiotherapy sessions made my recovery rapid and pain-free. Highly recommended!", name: "D. S. Rawat", department: "Orthopaedics" },
 ];
 const slides = [0, 1, 2].flatMap(copy => testimonials.map(item => ({ ...item, copy })));
 

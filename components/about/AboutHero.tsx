@@ -18,7 +18,7 @@ export default function AboutHero() {
         />
       </div>
 
-      {/* Background Hero Banner for Mobile (Matches attached screenshot) */}
+      {/* Background Hero Banner for Mobile */}
       <div className="absolute inset-0 md:hidden">
         <Image
           src="/About/aboutbanner-mobile.png"
@@ -35,12 +35,15 @@ export default function AboutHero() {
         <div data-motion-stagger className="w-full max-w-[550px] md:pb-4 xl:max-w-[490px] xl:pb-6 2xl:max-w-[550px]">
           <SectionLabel>About Us</SectionLabel>
 
-          {/* Mobile Title & Text (Matches attached screenshot) */}
+          <h1 className="mt-2 font-extrabold text-primary">
+            <span className="hidden text-[38px] leading-[1.12] tracking-[-1.7px] sm:text-[50px] md:block">
+              <span className="text-accent">Care</span> for Every <span className="text-accent">Stage</span><br />
+              of <span className="text-accent">Life</span>
+            </span>
+          </h1>
+
+          {/* Mobile Title & Text */}
           <div className="block md:hidden">
-            <h1 className="mt-2 text-[32px] font-extrabold leading-[1.15] tracking-[-1.5px] text-primary">
-              We&apos;re Here<br />
-              <span className="text-accent">For You</span>
-            </h1>
             <p className="mt-3.5 max-w-[500px] text-xs leading-relaxed text-foreground min-[380px]:text-sm">
               Have a question, need help, or want to book an appointment? Get in touch with our team, we&apos;re always happy to assist you.
             </p>
@@ -59,10 +62,6 @@ export default function AboutHero() {
 
           {/* Desktop Title & Text (100% Unchanged) */}
           <div className="hidden md:block">
-            <h1 className="text-[38px] font-extrabold leading-[1.12] tracking-[-1.7px] text-primary sm:text-[50px]">
-              <span className="text-accent">Care</span> for Every <span className="text-accent">Stage</span><br />
-              of <span className="text-accent">Life</span>
-            </h1>
             <p className="mt-6 max-w-[530px] text-base leading-6">
               Shree Goyal Hospital, Ajmer is dedicated to providing compassionate and high-quality healthcare in the fields of Maternity and ENT, with modern facilities and a patient-first approach.
             </p>

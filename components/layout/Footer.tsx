@@ -100,7 +100,12 @@ export default function Footer() {
                 },
                 {
                   icon: MapPin,
-                  text: "Goyal Hospital Balupura Road, Ajmer, Rajasthan, India",
+                  text: (
+                    <>
+                      <span className="block font-semibold">Shree Goyal Hospital</span>
+                      <span>73, Balupura Road, Adarsh Nagar, Ajmer - 305001</span>
+                    </>
+                  ),
                   href: "https://www.google.com/maps/search/?api=1&query=Shree+Goyal+Hospital+Balupura+Road+Ajmer",
                 },
               ].map(({ icon: Icon, text, href }) => (
@@ -122,7 +127,7 @@ export default function Footer() {
 
       <div className="bg-primary text-white">
         <div className="mx-auto flex min-h-[52px] max-w-[1240px] flex-col items-center justify-between gap-3 px-4 py-4 text-[10px] sm:px-5 sm:text-xs tracking-wide sm:flex-row xl:px-0">
-          <p>© Copyright 2026 All rights reserved.</p>
+          <p>© 2026 Shree Goyal Hospital. All rights reserved.</p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-white/80 sm:gap-4">
             <Link

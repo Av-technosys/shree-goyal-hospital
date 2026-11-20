@@ -33,7 +33,7 @@ export default function ComfortFacilities() {
           <span className="text-accent">Your Maximum Comfort</span>
         </h2>
         <p className="mt-4 text-base leading-6 text-foreground">
-          From accurate diagnosis to advanced treatment, we provide personalized care for your comfort and speedy recovery.
+         Clean, comfortable wards and caring nursing staff, with 24-hour emergency support whenever you need us.
         </p>
       </div>
 

@@ -299,7 +299,7 @@ export default function TermsAndConditionsPage() {
                 <div className="mt-4 grid gap-3 sm:grid-cols-2 text-xs sm:text-sm">
                   <div className="flex items-center gap-3 rounded-xl border border-slate-100 bg-[#fdfdff] p-3.5">
                     <MapPin size={16} className="text-primary shrink-0" />
-                    <span>Balupura Road, Adarsh Nagar, Ajmer, Rajasthan</span>
+                    <span>73, Balupura Road, Adarsh Nagar, Ajmer - 305001</span>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border border-slate-100 bg-[#fdfdff] p-3.5">
                     <Phone size={16} className="text-primary shrink-0" />

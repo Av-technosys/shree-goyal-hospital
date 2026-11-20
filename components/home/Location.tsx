@@ -9,7 +9,7 @@ export default function Location() {
     <div className="mx-auto max-w-[1240px] px-4 sm:px-5 xl:px-0">
       <div data-motion-reveal className="mx-auto mb-10 max-w-[720px] text-center">
         <h2 className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">We&apos;re Here When <span className="text-accent">You Need</span> Us</h2>
-        <p className="mt-3 text-sm leading-6">Located in a convenient and accessible area, Goyal Hospital is always ready to provide expert maternity and ENT care for you and your family.</p>
+        <p className="mt-3 text-sm leading-6">Located in a convenient and accessible area, Shree Goyal Hospital is always ready to provide expert maternity and ENT care for you and your family.</p>
       </div>
 
       <div className="grid gap-5 lg:grid-cols-[1fr_1.06fr]">
@@ -63,7 +63,7 @@ export default function Location() {
 
               <div className="min-w-0 flex-1">
                 <h4 className="mb-1 text-sm font-extrabold text-slate-900">Hospital Address</h4>
-                <p className="text-xs leading-5">Goyal Hospital, Balupura Road, Ajmer,<br />Rajasthan</p>
+                <p className="text-xs leading-5">Shree Goyal Hospital<br />73, Balupura Road, Adarsh Nagar, Ajmer - 305001</p>
               </div>
 
               <a href={mapUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-full bg-[#3981fa1a] px-3 py-2 text-[10px] font-bold text-primary"><Map size={12} />Get Directions <ArrowRight size={12} /></a>
