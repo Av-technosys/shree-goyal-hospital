@@ -33,10 +33,10 @@ export default function GalleryHero() {
       <div className="relative mx-auto flex max-w-[1240px] items-start px-5 pt-8 pb-[330px] min-[390px]:pb-[370px] sm:pb-[420px] md:min-h-[clamp(451px,31.3vw,580px)] md:items-center md:py-14 xl:px-0">
         <div data-motion-stagger className="w-full max-w-[550px] md:pb-4 xl:max-w-[490px] 2xl:max-w-[550px]">
           <SectionLabel>Gallery</SectionLabel>
-          <h1 className="mt-2 text-[34px] font-extrabold leading-[1.12] tracking-[-1.5px] text-primary sm:text-[50px]">
-            Moments of Care
+          <h1 className="text-[clamp(30px,8.65vw,38px)] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
+            Moments of <span className="text-accent">Care</span>
           </h1>
-          <p className="mt-4 text-xs leading-relaxed text-foreground min-[380px]:text-sm sm:mt-6 sm:text-base sm:leading-6">
+          <p className="mt-4 max-w-[550px] text-sm leading-6 sm:mt-6 sm:text-base text-foreground">
             Explore our hospital through photos of modern facilities, expert doctors, advanced equipment, compassionate care, and memorable moments with patients.
           </p>
           <div className="mt-6 sm:mt-10">

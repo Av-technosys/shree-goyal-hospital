@@ -44,8 +44,8 @@ export default function BlogContent({ posts, categories = [], loading = false, l
         <div className="relative overflow-hidden rounded-2xl"><Image src={featured.mainBannerImage} alt={featured.title} width={621} height={334} sizes="(max-width: 767px) 100vw, 50vw" className="aspect-[621/334] w-full object-cover" /><span className="absolute left-4 top-4 rounded-full border border-rose-100 bg-white/95 px-3 py-1 text-[10px] font-bold uppercase text-destructive">{featured.category}</span></div>
         <div className="flex h-full flex-col justify-center">
           <SectionLabel>Featured Blogs</SectionLabel>
-          <h2 className="break-words text-2xl font-extrabold leading-[1.15] tracking-[-1px] text-[#123866] lg:text-3xl xl:text-4xl">{featured.title}</h2>
-          <p className="mb-7 mt-5 text-sm leading-6">{featured.metaDescription}</p>
+          <h2 className="break-words text-[30px] font-extrabold leading-[1.15] tracking-[-1px] text-primary sm:text-4xl">{featured.title}</h2>
+          <p className="mb-7 mt-4 text-sm leading-6 text-foreground sm:text-base">{featured.metaDescription}</p>
           <div className="mt-auto flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-4"><div className="flex items-center gap-3 text-xs text-[#526176]"><span className="flex items-center gap-1"><CalendarDays size={14} />{blogDate(featured.publishDate)}</span><span aria-hidden="true">•</span><span className="flex items-center gap-1"><Clock3 size={14} />{featured.minutes} min read</span></div><Link href={`/blogs/${encodeURIComponent(featured.slug)}`} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-[#092f70]">Read Article<ArrowRight size={16} /></Link></div>
         </div>
       </article>}

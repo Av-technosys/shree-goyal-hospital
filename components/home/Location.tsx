@@ -25,7 +25,7 @@ export default function Location() {
               </span>
 
               <div className="min-w-0 flex-1">
-                <h4 className="mb-2 border-b border-blue-100 pb-2 text-sm font-extrabold text-slate-900">Working Hours</h4>
+                <h4 className="mb-2 border-b border-blue-100 pb-2 text-sm font-extrabold text-slate-900">OPD Timings</h4>
 
                 <div className="grid gap-3 min-[420px]:grid-cols-3">
                   {workingHours.map(({ days, hours }) => <p key={days} className="text-[10px] leading-5">

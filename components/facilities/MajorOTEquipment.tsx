@@ -28,12 +28,12 @@ export default function MajorOTEquipment() {
         </span>
         <h2
           id="equipment-heading"
-          className="text-3xl font-extrabold leading-[1.2] tracking-tight text-primary sm:text-4xl"
+          className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
         >
           State-of-the-Art<br />
           Medical Equipment
         </h2>
-        <p className="mt-3 max-w-[540px] text-sm leading-relaxed text-slate-600 sm:text-base sm:leading-6">
+        <p className="mt-4 max-w-[550px] text-sm leading-6 sm:mt-6 sm:text-base text-foreground">
           Our operation theatre is equipped with modern and advanced equipment to ensure safe and precise surgeries.
         </p>
       </div>

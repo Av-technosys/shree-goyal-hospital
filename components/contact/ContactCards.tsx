@@ -45,7 +45,7 @@ const contactCards = [
   },
   {
     icon: Clock3,
-    title: "Timings",
+    title: "OPD Timings",
     content: (
       <div className="mt-2 space-y-1 text-xs leading-5">
         {workingHours.map(({ days, hours }) => (

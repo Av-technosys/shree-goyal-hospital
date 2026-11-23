@@ -22,13 +22,13 @@ export default function KeyFacilities() {
         <div>
           <h2
             id="key-facilities-heading"
-            className="text-3xl font-extrabold leading-[1.15] tracking-[-1px] text-primary sm:text-4xl"
+            className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
           >
             Key Facilities at<br />
             <span className="text-accent">Shree Goyal Hospital</span>
           </h2>
         </div>
-        <p className="max-w-[380px] text-sm text-foreground/80 sm:text-right">
+        <p className="max-w-[420px] text-sm leading-6 text-foreground sm:text-base sm:text-right">
           Comprehensive facilities for Maternity, ENT and related healthcare services under one roof.
         </p>
       </div>

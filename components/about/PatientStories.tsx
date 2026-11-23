@@ -51,9 +51,9 @@ export default function PatientStories() {
 
       <div data-motion-reveal>
         <SectionLabel>Patient Stories</SectionLabel>
-        <h2 className="font-extrabold text-[#123866] text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">What Our Patients Say</h2>
+        <h2 className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">What Our <span className="text-accent">Patients</span> Say</h2>
         <figure className="mt-6">
-          <blockquote className="max-w-[540px] text-sm leading-6">Shree Goyal Hospital provided exceptional care throughout our pregnancy journey. From checkups to delivery, the highly supportive doctors and friendly staff made us feel completely safe. With excellent facilities and compassionate service, we highly recommend them for total peace of mind.</blockquote>
+          <blockquote className="max-w-[540px] text-sm leading-6 sm:text-base text-foreground">Shree Goyal Hospital provided exceptional care throughout our pregnancy journey. From checkups to delivery, the highly supportive doctors and friendly staff made us feel completely safe. With excellent facilities and compassionate service, we highly recommend them for total peace of mind.</blockquote>
           <figcaption className="mt-5 flex items-center gap-3">
             <Image src="/About/avatar.png" alt="" width={48} height={48} className="size-12 rounded-full object-cover" />
             <span><span className="block text-sm font-bold text-slate-900">Priya Sharma</span><span className="mt-1 block text-sm text-[#526176]">Patient, Ajmer</span></span>

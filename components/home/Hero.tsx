@@ -46,7 +46,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-6 flex max-w-[490px] divide-x-2 divide-slate-400/50 sm:mt-8">
-            {[["5000+", "Happy Patients"], ["10+", "Years of Care"], ["24/7", "Medical Support"]].map(([number, label]) => (
+            {[["1.5 Lac+", "Happy Patients"], ["20+", "Years of Care"], ["10000+","Successful Surgeries"],["24/7", "Medical Support"]].map(([number, label]) => (
               <div key={label} className="flex-1 px-4 first:pl-0">
                 <p className="text-2xl font-extrabold text-primary sm:text-4xl">
                   {number}

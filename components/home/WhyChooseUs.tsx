@@ -3,7 +3,7 @@ import { Building2, Heart, ShieldCheck, UsersRound } from "lucide-react";
 import ActionLink from "@/components/ui/ActionLink";
 import SectionLabel from "@/components/ui/SectionLabel";
 
-const items = [{ icon: ShieldCheck, title: "10+", detail: "Years of Excellence" }, { icon: UsersRound, title: "Expert Doctors", detail: "Qualified Specialist" }, { icon: Building2, title: "Modern facilities", detail: "Advanced Infrastructure" }, { icon: Heart, title: "Personalized", detail: "Patient Care" }];
+const items = [{ icon: ShieldCheck, title: "20+", detail: "Years of Excellence" }, { icon: UsersRound, title: "Expert Doctors", detail: "Qualified Specialist" }, { icon: Building2, title: "Modern facilities", detail: "Advanced Infrastructure" }, { icon: Heart, title: "Personalized", detail: "Patient Care" }];
 
 export default function WhyChooseUs() {
   return <section id="facilities" className="relative isolate overflow-hidden bg-white">
