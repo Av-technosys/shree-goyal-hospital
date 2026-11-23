@@ -22,7 +22,7 @@ export default function ServicesHero() {
       <div className="relative col-start-1 row-start-1 mx-auto flex w-full min-w-0 max-w-[1240px] items-start px-4 pt-8 pb-14 sm:px-5 md:items-center md:px-5 md:min-h-[clamp(450px,31.3vw,560px)] md:pt-14 md:pb-24 xl:px-0">
         <div data-motion-stagger className="w-full max-w-[580px] [&>p:first-child]:mb-4 md:[&>p:first-child]:mb-6">
           <SectionLabel>ENT Services</SectionLabel>
-          <h1 className="text-[clamp(30px,8.65vw,38px)] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
+          <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
             Expert Care for<br />
             <span className="text-accent">Ear, Nose &amp; Throat</span>
           </h1>

@@ -34,7 +34,7 @@ export default function LegalHero({
         <div data-motion-stagger className="w-full max-w-[780px]">
           <SectionLabel>{badge}</SectionLabel>
 
-          <h1 className="text-[clamp(30px,8.65vw,38px)] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
+          <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
             {title} <span className="text-accent">{highlight}</span>
           </h1>
 

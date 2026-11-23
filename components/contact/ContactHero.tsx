@@ -34,7 +34,7 @@ export default function ContactHero() {
       <div className="relative mx-auto flex w-full min-w-0 max-w-[1240px] items-start px-5 pt-8 pb-[330px] min-[390px]:pb-[370px] sm:pb-[420px] md:min-h-[clamp(450px,31.3vw,560px)] md:items-center md:py-12 xl:px-0">
         <div data-motion-stagger className="w-full max-w-[560px] md:pb-4">
           <SectionLabel>Contact Us</SectionLabel>
-          <h1 className="text-[clamp(30px,8.65vw,38px)] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
+          <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
             We&apos;re Here<br />
             <span className="text-accent">For You</span>
           </h1>

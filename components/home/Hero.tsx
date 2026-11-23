@@ -32,7 +32,7 @@ export default function Hero() {
       <div className="relative col-start-1 row-start-1 mx-auto flex w-full min-w-0 max-w-[1240px] items-start px-4 sm:px-5 pb-14 pt-10 md:min-h-[clamp(560px,40.5vw,780px)] md:items-center md:py-16 xl:px-0">
         <div data-motion-stagger className="w-full max-w-[565px] md:pb-6">
           <SectionLabel>Your Health, Our Priority</SectionLabel>
-          <h1 className="text-[clamp(30px,8.65vw,38px)] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
+          <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
             Every <span className="text-accent">Pregnancy</span><br />
             Deserves <span className="text-accent">Expert</span> Care
           </h1>

@@ -34,7 +34,7 @@ export default function FacilitiesHero() {
         <div data-motion-stagger className="w-full max-w-[560px] md:pb-4">
           <SectionLabel>Facilities</SectionLabel>
 
-          <h1 className="text-[clamp(30px,8.65vw,38px)] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
+          <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
             Modern Facilities<br />
             <span className="text-accent">for Better Care</span>
           </h1>

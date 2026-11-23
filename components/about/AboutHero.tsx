@@ -34,7 +34,7 @@ export default function AboutHero() {
         <div data-motion-stagger className="w-full max-w-[550px] md:pb-4 xl:max-w-[490px] xl:pb-6 2xl:max-w-[550px]">
           <SectionLabel>About Us</SectionLabel>
 
-          <h1 className="text-[clamp(30px,8.65vw,38px)] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
+          <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
             <span className="text-accent">Care</span> for Every <span className="text-accent">Stage</span><br />
             of <span className="text-accent">Life</span>
           </h1>
