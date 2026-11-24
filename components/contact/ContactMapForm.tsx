@@ -80,10 +80,10 @@ export default function ContactMapForm() {
           <p className="mb-3 inline-flex self-start rounded-full bg-[#3981fa1a] px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
             SEND US A MESSAGE
           </p>
-          <h2 className="text-2xl font-extrabold tracking-[-0.5px] text-primary sm:text-3xl">
+          <h2 className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl">
             Get in Touch
           </h2>
-          <p className="mb-6 mt-1.5 text-xs text-foreground/80 sm:text-sm">
+          <p className="mb-6 mt-2 text-sm leading-6 text-foreground sm:text-base">
             Fill out the form and our team will get back to you soon.
           </p>
 

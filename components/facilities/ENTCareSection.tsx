@@ -48,13 +48,13 @@ export default function ENTCareSection() {
           </span>
           <h2
             id="ent-care-heading"
-            className="text-2xl min-[390px]:text-3xl font-extrabold leading-[1.2] tracking-tight text-primary sm:text-4xl"
+            className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
           >
             Expert <span className="text-accent">Care</span> for<br />
             Every <span className="text-accent">Ear, Nose</span> &amp;<br />
             <span className="text-accent">Throat</span> Concern
           </h2>
-          <p className="mt-2.5 sm:mt-3 max-w-[520px] text-sm leading-relaxed text-slate-600 sm:text-base sm:leading-6">
+          <p className="mt-4 max-w-[550px] text-sm leading-6 sm:mt-6 sm:text-base text-foreground">
             From accurate diagnosis to advanced treatment, we provide personalized care for ear, nose, throat and hearing conditions.
           </p>
 

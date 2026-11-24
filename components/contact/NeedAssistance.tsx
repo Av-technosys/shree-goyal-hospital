@@ -50,12 +50,12 @@ export default function NeedAssistance() {
           <SectionLabel>Need Assistance</SectionLabel>
           <h2
             id="assistance-heading"
-            className="text-2xl font-extrabold leading-[1.15] tracking-[-1px] text-primary sm:text-4xl"
+            className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
           >
             Your Care<br />
             <span className="text-accent">Starts with a Conversation</span>
           </h2>
-          <p className="mt-3 max-w-[540px] text-xs leading-relaxed text-foreground sm:mt-4 sm:text-base sm:leading-6">
+          <p className="mt-4 max-w-[550px] text-sm leading-6 sm:mt-6 sm:text-base text-foreground">
             Whether it&apos;s a routine checkup, a second opinion, or an urgent concern — our team is here to guide you at every step.
           </p>
 

@@ -42,7 +42,7 @@ export default function Footer() {
               Compassionate Care.
             </p>
             <p className="mt-1 text-xs sm:text-sm">
-              Healthier Families. Brighter Tomorrows.
+              Shree Goyal Hospital is a trusted maternity and ENT care centre, dedicated to keeping families healthy and happy, with experienced doctors, modern facilities and caring support that you truly deserve.
             </p>
           </div>
 

@@ -34,11 +34,11 @@ export default function ContactHero() {
       <div className="relative mx-auto flex w-full min-w-0 max-w-[1240px] items-start px-5 pt-8 pb-[330px] min-[390px]:pb-[370px] sm:pb-[420px] md:min-h-[clamp(450px,31.3vw,560px)] md:items-center md:py-12 xl:px-0">
         <div data-motion-stagger className="w-full max-w-[560px] md:pb-4">
           <SectionLabel>Contact Us</SectionLabel>
-          <h1 className="mt-2 text-[32px] font-extrabold leading-[1.15] tracking-[-1.5px] text-primary sm:text-5xl lg:text-[52px]">
+          <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
             We&apos;re Here<br />
             <span className="text-accent">For You</span>
           </h1>
-          <p className="mt-3.5 max-w-[500px] text-xs leading-relaxed text-foreground min-[380px]:text-sm sm:mt-5 sm:text-base">
+          <p className="mt-4 max-w-[550px] text-sm leading-6 sm:mt-6 sm:text-base text-foreground">
             Have a question, need help, or want to book an appointment? Get in touch with our team, we&apos;re always happy to assist you.
           </p>
 

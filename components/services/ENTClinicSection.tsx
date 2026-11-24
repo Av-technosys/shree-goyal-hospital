@@ -80,12 +80,12 @@ export default function ENTClinicSection({
             </span>
             <h2
               id={`${id}-heading`}
-              className="mt-1 flex items-center gap-2.5 text-[23px] font-extrabold leading-tight text-primary sm:text-3xl"
+              className="mt-1 flex items-center gap-2.5 font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
             >
-              <span className="h-5 w-1 md:h-7 md:w-1.5 shrink-0 rounded-full bg-destructive" aria-hidden="true" />
+              <span className="h-6 w-1 md:h-7 md:w-1.5 shrink-0 rounded-full bg-destructive" aria-hidden="true" />
               {heading}
             </h2>
-            <p className="mt-2 max-w-[560px] text-[13px] sm:text-base leading-relaxed text-foreground">
+            <p className="mt-3 max-w-[560px] text-sm leading-6 sm:mt-4 sm:text-base text-foreground">
               {headingDesc}
             </p>
             <div className="mt-5 md:mt-6">

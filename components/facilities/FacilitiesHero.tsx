@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import ActionLink from "@/components/ui/ActionLink";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -35,40 +34,17 @@ export default function FacilitiesHero() {
         <div data-motion-stagger className="w-full max-w-[560px] md:pb-4">
           <SectionLabel>Facilities</SectionLabel>
 
-          {/* Mobile Title & Text (PDF Match) */}
-          <div className="block md:hidden">
-            <p className="mt-2 text-[32px] font-extrabold leading-[1.15] tracking-[-1.5px] text-primary">
-              We&apos;re Here<br />
-              <span className="text-accent">For You</span>
-            </p>
-            <p className="mt-3.5 max-w-[500px] text-xs leading-relaxed text-foreground min-[380px]:text-sm">
-              Have a question, need help, or want to book an appointment? Get in touch with our team, we&apos;re always happy to assist you.
-            </p>
-            <div className="mt-5 flex flex-row flex-wrap items-center gap-2.5">
-              <ActionLink href="/contact">Book Appointment</ActionLink>
-              <a
-                href="tel:+918432214377"
-                data-motion-hover="button"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-primary bg-white px-5 py-2.5 text-xs font-bold text-primary shadow-xs transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-4 min-[380px]:text-sm"
-              >
-                Call Now
-                <ArrowRight size={15} aria-hidden="true" />
-              </a>
-            </div>
-          </div>
+          <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
+            Modern Facilities<br />
+            <span className="text-accent">for Better Care</span>
+          </h1>
 
-          {/* Desktop Title & Text (100% Unchanged) */}
-          <div className="hidden md:block">
-            <h1 className="text-[38px] font-extrabold leading-[1.12] tracking-[-1.5px] text-primary sm:text-5xl lg:text-[52px]">
-              Modern Facilities<br />
-              <span className="text-accent">for Better Care</span>
-            </h1>
-            <p className="mt-5 max-w-[500px] text-base leading-6 text-foreground">
-              At Shree Goyal Hospital, we combine advanced technology with a patient-friendly environment to provide safe, effective and comfortable care for you and your family.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <ActionLink href="#appointment">Book Appointment</ActionLink>
-            </div>
+          <p className="mt-4 max-w-[550px] text-sm leading-6 sm:mt-6 sm:text-base text-foreground">
+            At Shree Goyal Hospital, we combine advanced technology with a patient-friendly environment to provide safe, effective and comfortable care for you and your family.
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-4 sm:mt-10">
+            <ActionLink href="/#appointment">Book Appointment</ActionLink>
           </div>
         </div>
       </div>

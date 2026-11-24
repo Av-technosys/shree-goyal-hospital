@@ -27,12 +27,12 @@ export default function ComfortFacilities() {
         <SectionLabel>Premium Facilities</SectionLabel>
         <h2
           id="comfort-heading"
-          className="text-3xl font-extrabold leading-[1.15] tracking-[-1px] text-primary sm:text-4xl"
+          className="font-extrabold text-primary text-[30px] leading-[1.15] tracking-[-1px] sm:text-4xl"
         >
           Premium Facilities for<br />
           <span className="text-accent">Your Maximum Comfort</span>
         </h2>
-        <p className="mt-4 text-base leading-6 text-foreground">
+        <p className="mt-4 max-w-[550px] text-sm leading-6 sm:mt-6 sm:text-base text-foreground">
          Clean, comfortable wards and caring nursing staff, with 24-hour emergency support whenever you need us.
         </p>
       </div>

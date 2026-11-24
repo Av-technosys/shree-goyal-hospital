@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import ActionLink from "@/components/ui/ActionLink";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -35,40 +34,18 @@ export default function AboutHero() {
         <div data-motion-stagger className="w-full max-w-[550px] md:pb-4 xl:max-w-[490px] xl:pb-6 2xl:max-w-[550px]">
           <SectionLabel>About Us</SectionLabel>
 
-          <h1 className="mt-2 font-extrabold text-primary">
-            <span className="hidden text-[38px] leading-[1.12] tracking-[-1.7px] sm:text-[50px] md:block">
-              <span className="text-accent">Care</span> for Every <span className="text-accent">Stage</span><br />
-              of <span className="text-accent">Life</span>
-            </span>
+          <h1 className="text-[34px] font-extrabold leading-[1.12] tracking-[-1px] text-primary sm:text-[50px]">
+            <span className="text-accent">Care</span> for Every <span className="text-accent">Stage</span><br />
+            of <span className="text-accent">Life</span>
           </h1>
 
-          {/* Mobile Title & Text */}
-          <div className="block md:hidden">
-            <p className="mt-3.5 max-w-[500px] text-xs leading-relaxed text-foreground min-[380px]:text-sm">
-              Have a question, need help, or want to book an appointment? Get in touch with our team, we&apos;re always happy to assist you.
-            </p>
-            <div className="mt-5 flex flex-row flex-wrap items-center gap-2.5">
-              <ActionLink href="/contact">Book Appointment</ActionLink>
-              <a
-                href="tel:+918432214377"
-                data-motion-hover="button"
-                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-primary bg-white px-5 py-2.5 text-xs font-bold text-primary shadow-xs transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-4 min-[380px]:text-sm"
-              >
-                Call Now
-                <ArrowRight size={15} aria-hidden="true" />
-              </a>
-            </div>
-          </div>
+          <p className="mt-4 max-w-[550px] text-sm leading-6 sm:mt-6 sm:text-base text-foreground">
+            Shree Goyal Hospital, Ajmer is dedicated to providing compassionate and high-quality healthcare in the fields of Maternity and ENT, with modern facilities and a patient-first approach.
+          </p>
 
-          {/* Desktop Title & Text (100% Unchanged) */}
-          <div className="hidden md:block">
-            <p className="mt-6 max-w-[530px] text-base leading-6">
-              Shree Goyal Hospital, Ajmer is dedicated to providing compassionate and high-quality healthcare in the fields of Maternity and ENT, with modern facilities and a patient-first approach.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <ActionLink href="#appointment">Book Appointment</ActionLink>
-              <ActionLink href="/services" outline>Our Services</ActionLink>
-            </div>
+          <div className="mt-6 flex flex-wrap gap-4 sm:mt-10">
+            <ActionLink href="/#appointment">Book Appointment</ActionLink>
+            <ActionLink href="/services" outline>Our Services</ActionLink>
           </div>
         </div>
       </div>
